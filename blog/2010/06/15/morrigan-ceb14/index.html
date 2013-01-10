@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Morrigan α4 - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="Its been ages since α3 and during that time much has changed. Not a huge number of new features but there are, I feel, some significant improvements &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://haku.github.com/vaguehope/blog/2010/06/15/morrigan-ceb14/">
+  <link href="/vaguehope/favicon.png" rel="icon">
+  <link href="/vaguehope/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/vaguehope/javascripts/modernizr-2.0.js"></script>
+  <script src="/vaguehope/javascripts/ender.js"></script>
+  <script src="/vaguehope/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/vaguehope/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/vaguehope/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/vaguehope/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:haku.github.com/vaguehope" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/vaguehope/">Blog</a></li>
+  <li><a href="/vaguehope/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Morrigan α4</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-15T22:50:44+01:00" pubdate data-updated="true">Jun 15<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Its been ages since α3 and during that time much has changed.  Not a huge number of new features but there are, I feel, some significant improvements in the quality of the code base (I have done quite a lot of refactoring, debugging and optimising).</p>
+
+<p>The most notable new feature is that there is now an embedded Jetty server.  This provides two things: 1) a web UI to remote control Morrigan and 2) REST-like APIs for other apps to interact with.  Also this server can be started on a headless server.</p>
+
+<p>The existing web UI (WUI) is very primitive and is mostly a proof of concept.  Once this is more detailed the headless mode will make a lot more sense.  I hope to persuade a far better web developer than I to design that part.  The WUI is also very hackable as the whole thing is contained in a .war file in the app&#8217;s root directory.</p>
+
+<p>The REST-like API are also quite primitive, but the API for listing libraries and retrieving their content is quite functional.  My initial proof that it works is that you can now use the Morrigan UI to browse the content of a library located on a remote machine.  You can&#8217;t do anything with the list of tracks yet other than look at it, but this will improve soon.  The server can send the media files, its just that I have not consumed this function yet.</p>
+
+<p>Oh and aside for the web-server stuff, there are numerous other improvements and fixes. :)</p>
+
+<p>As usual, builds for all 3 platforms can be found on the <a href="http://sparktank.net/w/index.php?title=Project_Morrigan">Morrigan project page</a>.</p>
+
+<p>A note for Mac users: The only java-compatible playback engine I know of that works on Mac is JMF, and so for now I am packing this with the mac build.  To get it to play anything other than wav files, you may have to:
+1) Install JMF on your system.
+2) Build a custom JMF jar and feed it to Morrigan (put it in the engines dir).  I had to do this on my XP box.
+Feel free to ask if you need help with this.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-06-15T22:50:44+01:00" pubdate data-updated="true">Jun 15<span>th</span>, 2010</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://haku.github.com/vaguehope/blog/2010/06/15/morrigan-ceb14/" data-via="" data-counturl="http://haku.github.com/vaguehope/blog/2010/06/15/morrigan-ceb14/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/vaguehope/blog/2010/05/17/o2s-definition-of-unlimited/" title="Previous Post: O2's definition of 'unlimited'">&laquo; O2's definition of 'unlimited'</a>
+      
+      
+        <a class="basic-alignment right" href="/vaguehope/blog/2010/09/07/morrigans-cli/" title="Next Post: Morrigan's CLI">Morrigan's CLI &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/vaguehope/blog/2012/10/20/fixing-ubuntu-12-04-horizontal-scrolling-with-apple-magic-trackpad/">Fixing Ubuntu 12.04 horizontal scrolling with Apple Magic Trackpad</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vaguehope/blog/2012/02/02/powermock-puzzler/">PowerMock Puzzler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vaguehope/blog/2012/01/29/mqtt-kindlet/">MQTT Kindlet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vaguehope/blog/2012/01/02/perform-programming/">Perform: Programming</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vaguehope/blog/2011/09/14/svn-to-existing-git-repository-in-3-steps/">SVN to (existing) git repository in 3 steps</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

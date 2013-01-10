@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: dev/dream | My Octopress Blog]]></title>
+  <link href="http://haku.github.com/vaguehope/blog/categories/dev-dream/atom.xml" rel="self"/>
+  <link href="http://haku.github.com/vaguehope/"/>
+  <updated>2013-01-10T22:00:07+00:00</updated>
+  <id>http://haku.github.com/vaguehope/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Morrigan's CLI]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/09/07/morrigans-cli/"/>
+    <updated>2010-09-07T23:20:33+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/09/07/morrigans-cli</id>
+    <content type="html"><![CDATA[<p>One really handy feature of OSGi is the ability to supplement the OSGi console with extra commands.  This is particularly useful for creating very quick test/debug interfaces for each of you OSGi bundles.  The console is only shown to the user when the OSGi environment is started from the CLI and and "-console" parameter is specified, so for general usage this can be left neatly hidden.  So when things start to go a astray, you can just dive in and start poking around to see what is going on.  In more advanced setups, the console can be tunnelled to a port and accessed via telnet or ssh.</p>
+
+<p>As part of the headless version Morrigan, I have now added a handy CLI interface for testing / configuring it - essential until all this functionality makes it in to the WUI.  Below is a summary of all the currently supported commands (copied form the help text).</p>
+
+<p>For now I have grouped all the commands under a top-level command of 'mn' (short commands are easier to type).  I am still working on this and trying to decide the best command structure, so suggestions are very welcome!</p>
+
+<p>As an initially usability test, try and guess what all of these do. :D</p>
+
+<p><code>
+mn media
+mn media create &lt;dbname&gt;
+mn media add &lt;dir&gt; &lt;q1&gt;
+mn media scan &lt;q1&gt;
+mn media &lt;q1&gt;
+mn media &lt;q1&gt; &lt;q2&gt;
+mn players
+mn player 0
+mn player 0 play
+mn player 0 play &lt;q1&gt;
+mn player 0 play &lt;q1&gt; &lt;q2&gt;
+mn player 0 queue
+mn player 0 queue &lt;q1&gt;
+mn player 0 queue &lt;q1&gt; &lt;q2&gt;
+mn player 0 queue clear
+mn player 0 pause
+mn player 0 stop
+mn player 0 next
+mn player 0 order &lt;order&gt;
+mn play
+mn play &lt;q1&gt;
+mn play &lt;q1&gt; &lt;q2&gt;
+mn queue
+mn queue &lt;q1&gt;
+mn queue &lt;q1&gt; &lt;q2&gt;
+mn pause
+mn stop
+mn next
+NOTE 1: &lt;q1&gt; = list, &lt;q2&gt; = item in &lt;q1&gt;.
+NOTE 2: Only omit player ID when there is only one player.
+</code></p>
+
+<p>I will be posting a build of the headless version in the next couple of days for general testing.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Morrigan Project media player - first alpha release]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/02/07/morrigan-project-media-player-first-alpha-release/"/>
+    <updated>2010-02-07T20:00:44+00:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/02/07/morrigan-project-media-player-first-alpha-release</id>
+    <content type="html"><![CDATA[<p>While development is still in early days, now seems like a nice time to gather some preliminary feed back.  Hopefully this should give people a feel for what I am aiming for.  Also I would like to catch any really nasty show-stopping bugs ASAP.</p>
+
+<p>I have draft entries about some of the ideas I want to explore with this project which I will try and finish and post in the next few days.</p>
+
+<p>Known issues:
+- The playback engine implementation currently packaged, while being truly cross-platform, is somewhat flaky and will randomly reject certain malformed files.
+- On Ubuntu (and other linux?) it will fail to play anything if a flash object is loaded.  This is an issue with the non-free linux flash player.</p>
+
+<p>License:
+Obviously this is an alpha build and is intended for testing only.  It is likely to explode randomly at any time.  I have not decided on which (open source) licence to release under, so for now this alpha build is supplied "as is" - use at your own risk.  For now, I reserve copyright on any content that is copyrightable.
+These downloads contain 3rd party libraries: <a href="http://www.zentus.com/sqlitejdbc/">sqlitejdbc</a>, <a href="http://www.javazoom.net/mp3spi/mp3spi.html">mp3SPI</a>, <a href="http://www.javazoom.net/vorbisspi/vorbisspi.html">vorbisSPI</a> and of course the <a href="http://www.eclipse.org/home/categories/rcp.php">Rich Client Platform</a>.</p>
+
+<p>Feedback:
+Any and all feedback is greatly welcomed, particularly if you find a bug!  And if you are feeling super keen, I have just set up a bug track <a href="http://sparktank.net/m">at my mantis server here</a>.</p>
+
+<p>Download links:
+<a href="http://sparktank.net/get/morrigan.win32.x86.zip">Windows x86 32bit</a>
+<a href="http://sparktank.net/get/morrigan.gtk.x86.zip">Linux x86 32bit</a>
+<a href="http://sparktank.net/get/morrigan.macosx.cocoa.x86.zip">Mac Cocoa x86</a> (i can't test this one, so no idea if it works)</p>
+
+<p>More platforms available on request.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[dev/dream - awakening]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/02/07/devdream-awakening/"/>
+    <updated>2010-02-07T00:53:30+00:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/02/07/devdream-awakening</id>
+    <content type="html"><![CDATA[<p>My week.. well 5 days of coding are basically over, so to begin this entry, here is a transcript of my white-board-wiki todo-list as it currently is.  These are not in order - on the board the sections are in a sort of circle.</p>
+
+<p>General:
+- Logging. it needs some.
+- Handlers - fix my crap handler impl (this is an RCP thing).
+- Icons - get some decent ones (ATM i am reusing terra icons).</p>
+
+<p>Playback:
+- back / pause buttons, etc.
+- support multiple external playback engines.
+- extra play order modes.
+- read meta data (mainly track length).</p>
+
+<p>Library:
+- Queries (these will be savable sub-views of libraries).
+- Store entry paths relative to source directories? (just an idea, might help with portability)</p>
+
+<p>Playlists:
+- save meta data.
+- differentiate between saving metadata and saving the list content.</p>
+
+<p>Preferences:
+- configure playback engines.
+- etc...</p>
+
+<p>Of course, this does not cover any of the remaining big items on my list such as media repositories, meta data syncing and tagging.  The next big thing to do is to take advantage of my newly externalised playback engine interface and write a decent one that makes morrigan actually usable for my every day needs.  I have fond some promising leads on using DirectShow in java will probably start with this one.  I know it will be windows only, but at least then morrigan will begin to complete with terra for compatibility.  This is important - once I can start using morrigan instead of terra, I will have hit a strong mile-stone.  And once I am using it with anger, I should be able to start properly hardening the code bade.</p>
+
+<p>If anyone is interested in beta-testing, I should have a decent build to play with in the next couple of days.  I can also make the beta source available, if anyone is interested.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[dev/dream - end of 'session' 1]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/02/03/devdream-end-of-session-1/"/>
+    <updated>2010-02-03T01:02:10+00:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/02/03/devdream-end-of-session-1</id>
+    <content type="html"><![CDATA[<p>Progress: I can add and remove files from a playlist and doubleclicking them plays that file... providing its a .wav.  I tried copying across the playback code from musicman and it seems to work, until you give it a .mp3 and it throws a unknown format exception.  <em>sigh</em>  As soon as i have finished writing this i am stopping to eat dinner.</p>
+
+<p>Since pictures tell far more, here is a sample UI screen shot:
+<a href="http://vaguehope.com/wp/wp-content/uploads/2010/02/morrigan.mainwindow.20100203.png"><img src="http://vaguehope.com/wp/wp-content/uploads/2010/02/morrigan.mainwindow.20100203-300x154.png" alt="" /></a></p>
+
+<p>Current issues:
+- Can't play mp3 (when it should).
+- My implementation of "? extends AbstractHandler implements IHandler"'s execute() is really nasty but I can't workout how I am <em>supposed</em> to do it.
+- Standard java logging seems to be colliding with RCP - the console handler does not work.  Needs further investigation.</p>
+
+<p>fortunately, only the first of these is blocking.  If i can clear that, then i can move on and start implementing the library.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[dev/dream morrigan development week off to a late start]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/02/02/devdream-morrigan-development-week-off-to-a-late-start/"/>
+    <updated>2010-02-02T16:26:15+00:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/02/02/devdream-morrigan-development-week-off-to-a-late-start</id>
+    <content type="html"><![CDATA[<p>I was supposed to start yesterday, but Quilage stole Saturday and then I went back to my parents for a couple of days to pick up my luggage that took 3 weeks to get from Geneva to Epsom.  Thanks for that, Thompson Travel.  But I digress...</p>
+
+<p>Initial progress is slow, but that is somewhat expected.  Some time taken by re-familiarising my self with RCP stuff, the code I wrote before some time ago.  But that all makes sense now and I have nearly finished a very basic playlist editor.  All that is left is to link in the methods I have to read and write playlist files to the right bits of RCP.  Once this is done, I get to actually try and make it play files.</p>
+
+<p>This is the first major hurdle.  Java is not renowned for its media APIs.  To work around the myriad of different ways of playing media, I plan to abstract out the actual playback engine so that it can be pluggable.  This should also help with cross-platform support.  If I am really lucky, I should be able to use DirectShow on Windows and GStreamer on Linux.  As for OSX, that's an SEP.</p>
+
+<p>The first iteration will only be able to play mp3 files, and will use the very simple playback mechanism Tsuki Chama uses in <a href="http://www.onlydreaming.net/software/musicman">MusicMan</a>.  I am lead to believe its cross-platform (I should probably test this) and will do for now as I start to design the playback abstraction layer.</p>
+
+<p>I have planned my work for this week into 4 slightly vague user stories.</p>
+
+<ol>
+<li><p>A user can add local files to a playlist and play them.</p></li>
+<li><p>A user can maintain a library of local media.</p></li>
+<li><p>A user can check media out from a remote media repository.</p></li>
+<li><p>A user can sync metadata against a remote media repository.</p></li>
+</ol>
+
+
+<p>I know these are a little vague, but as most of the design process is exploratory they are a sufficient guide for now.  Also these clearly don't cover all the features I want to add, this is just what I think I can do in a week :S.  And obviously at the moment, I am still on story 1.</p>
+
+<p>I have a strange flow-chart on a scrap of paper next to me that describes all the interactions I want in the system.  Soon I will digitise it and discuss the ideas.</p>
+]]></content>
+  </entry>
+  
+</feed>

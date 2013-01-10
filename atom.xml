@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://haku.github.com/vaguehope/atom.xml" rel="self"/>
   <link href="http://haku.github.com/vaguehope/"/>
-  <updated>2013-01-10T21:48:31+00:00</updated>
+  <updated>2013-01-10T22:00:07+00:00</updated>
   <id>http://haku.github.com/vaguehope/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,5 +12,582 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Fixing Ubuntu 12.04 horizontal scrolling with Apple Magic Trackpad]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2012/10/20/fixing-ubuntu-12-04-horizontal-scrolling-with-apple-magic-trackpad/"/>
+    <updated>2012-10-20T11:40:11+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2012/10/20/fixing-ubuntu-12-04-horizontal-scrolling-with-apple-magic-trackpad</id>
+    <content type="html"><![CDATA[<p>After upgrading from Ubuntu 11.04 to 12.04 the h-scrolling two-finger quester on my Magic Trackpad stopped working, despite being enabled in the &#8216;mouse and touchpad&#8217; settings dialogue.</p>
+
+<p>A little digging and guessing led me to:
+<code>
+$ xinput list
+$ xinput list-props 'Apple Wireless Trackpad'
+</code></p>
+
+<p>The output of which included:
+<code>
+Synaptics Two-Finger Scrolling (377):   1, 0
+</code></p>
+
+<p>I had already found that the <code>Synaptics Scrolling Distance</code> property&#8217;s value was in the order &#8216;vertical, horizontal&#8217;, so guessed:
+<code>
+$ xinput --set-prop 'Apple Wireless Trackpad' 'Synaptics Two-Finger Scrolling' 1, 1
+</code></p>
+
+<p>And it worked! :D</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PowerMock Puzzler]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2012/02/02/powermock-puzzler/"/>
+    <updated>2012-02-02T08:35:12+00:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2012/02/02/powermock-puzzler</id>
+    <content type="html"><![CDATA[<p><a href="https://code.google.com/p/powermock/">PowerMock</a> is a very handy extension to the <a href="https://code.google.com/p/mockito/">Mockito</a> mocking framework.  It extends Mockito by allowing the mocking of static methods and final classes.  Obviously to do this some interesting mangling is going on inside the JVM.  Occasionally it is possible to run into some very confusing error messages.</p>
+
+<p>Yesterday my colleague [<a href="http://blog.candle.me.uk/">Candle</a>] and I spent a very vexing half hour over this puzzle before we figured out the answer.  So I though I would share it to see how long it takes others to figure it out. ^^</p>
+
+<p>Consider the following class.  Do not worry that it basically does nothing.  This is just the minimum to show the puzzle.</p>
+
+<blockquote><p>import java.net.URL;</p>
+
+<pre><code>import com.google.common.cache.CacheLoader;
+
+public class Loader extends CacheLoader&lt;URL, String&gt; {
+  @Override
+  public String load (URL u) throws Exception {
+      u.openConnection();
+      return null;
+  }
+}
+</code></pre></blockquote>
+
+<p>And then consider this test class.</p>
+
+<blockquote><p>import java.net.URL;</p>
+
+<pre><code>import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
+
+@RunWith(PowerMockRunner.class)
+@PrepareForTest({ URL.class })
+public class LoaderTest {
+  @Test
+  public void test () throws Exception {
+      URL url = PowerMockito.mock(URL.class);
+      Loader loader = new Loader();
+      loader.load(url);
+  }
+}
+</code></pre></blockquote>
+
+<p>When run this test will fail with the following exception.  I have edited it slightly to match the cuttings above.  It throws in Loader.load() at the call to u.openConnection().</p>
+
+<blockquote><p>java.lang.AbstractMethodError: java/net/URLStreamHandler.openConnection(Ljava/net/URL;)Ljava/net/URLConnection;</p>
+
+<pre><code>at java.net.URL.openConnection(URL.java:957)
+at Loader.load(Loader.java:7)
+</code></pre></blockquote>
+
+<p>Now try and figure out what is going on here.  Go go go!  And for bonus points, suggest a solution that will fix it enough to make the test pass.</p>
+
+<p>EDIT on 2012-09-15:
+<strong>Solution</strong></p>
+
+<p>Somewhat late, here is the solution:  Add the class under test to the @PrepareForTest statement in the test:</p>
+
+<blockquote><pre><code>@RunWith(PowerMockRunner.class)
+@PrepareForTest({ URL.class, Loader.class })
+public class LoaderTest {
+</code></pre></blockquote>
+
+<p>The problem is that the URL class is being loaded in such a way that the Loader class sees a different class definition for URL compared to the LoaderTest class.  The Loader class gets the real URL class instead of the modified one provided by PowerMockito.  Adding the class under test to the @PrepareForTest ensures that the Loader class is loaded with the modified class loaded provided by PowerMockito.</p>
+
+<p>Simple, eh? ^^</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MQTT Kindlet]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2012/01/29/mqtt-kindlet/"/>
+    <updated>2012-01-29T13:27:44+00:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2012/01/29/mqtt-kindlet</id>
+    <content type="html"><![CDATA[<p><a href="http://vaguehope.com/2012/01/mqtt-kindlet/img_20120129_125008/"><img src="http://vaguehope.com/uploads/2012/01/IMG_20120129_125008-768x1024.jpg" alt="" /></a></p>
+
+<p>For <a href="http://london.greenhackathon.com">London Green Hackathon</a> I hacked together a proof-of-concept Kindlet (Kindle Applet) for monitoring environmental data in real-time that runs on a Kindle 3.  Its actually a generic MQTT client that runs on a Kindle, but MQTT is a very popular protocol for transmitting environmental data so I think I can argue the &#8216;green&#8217; values of this project.  After all, <a href="http://nanode.eu">Nanode</a> is just an Arduino with an Ethernet port, that gets green badges.</p>
+
+<p>All the code was written after 1AM, thought the night and into the next day.  Its somewhat rough around the edges.  But given we were not sure if it would work at all, I am very happy with the result.</p>
+
+<p>The Kindle is NOT intended as a general use computing device.  There is a SDK, but its closed and so far as I know very little has been done with it.  Its basically for creating interactive books, not applications.  Seems current bets are that is will remain this way.  Hardware limitations aside, the software is really quite fragile.  I am guessing there is a single JVM process for everything, and there is no sand-boxing.  Any unhandled exceptions trigger a JVM restart.</p>
+
+<p>Installing apps on a Kindle requires several hacks to be applied to the device first.  In order: jail-brake, usb-network, developer certificate and changes to the JVM security manager configuration.  The last one is not required for all apps, but it was needed for this hack.</p>
+
+<p><a href="http://blog.tkxuyen.com/2010/10/kindle-jailbreaking-and-kdk.html">Jail-brake and USB network</a>: That page has all the required details and links to the jail-brake downloads.
+<a href="http://www.mobileread.com/forums/archive/index.php/t-158015.html">If the USB net freezes on you, try this</a>.</p>
+
+<p>All Kindlets must be signed.  Most people share the same certificate (keeps things simple) and this needs to be copied into `/var/local/java/keystore/developer.keystore&#8217; on Kindle.</p>
+
+<p><a href="http://www.mobileread.mobi/forums/showthread.php?t=151984&amp;page=2">Java security manager</a>: MQTT requires permission to open a socket.  By default the Kindle only allows Kindlets to do HTTP and HTTPS.  By editing <code>/opt/amazon/ebook/security/external.policy' and adding</code>permission java.net.SocketPermission &#8220;*:80-&#8220;, &#8220;accept, connect, listen, resolve&#8221;;&#8217; we can get around this blocker.</p>
+
+<p><a href="http://www.cowlark.com/kindle/getting-started.html">Writing Kindlets</a>: this page is a very good getting started guild.  The Hello World example Kindlet is a useful starting point.  I think <a href="http://adq.livejournal.com/107360.html">this page also helped</a>.</p>
+
+<p><a href="https://kdk-javadocs.s3.amazonaws.com/index.html">AWT / Kindle GUI</a>: JavaDoc for the Kindle GUI tools.  Its basically AWT with a custom set of widgets specially for the Kindle. Not the most clear guide but a good start.  Generally I was able to deduce the remaining 10% of data by trial-and-try-angai-until-it-works-dam-it.</p>
+
+<p>But the final result?  A funky Kindlet that can connect to any MQTT broker and tail the content of a topic space.  Oh, and a greatly increased knowledge of how a Kindle hangs together.  It really is an awesome device.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Perform: Programming]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2012/01/02/perform-programming/"/>
+    <updated>2012-01-02T22:00:00+00:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2012/01/02/perform-programming</id>
+    <content type="html"><![CDATA[<p>Music, films, acting, painting&#8230; art of any kind.  People always have an opinion.  It is a completely open-access system.  No special skills are required to understand and enjoy art&#8230; what would be the point in music that was only interesting to skilled musicians?</p>
+
+<p>A display of great skill earns great praise and respect, possibly fame.  No one wants to know how a given tune was dreamed up, the tedious months of refining the composition, the 100 failed songs that preceded this one.  The art in a work of art is all in the interpretation, the mind of the observer.</p>
+
+<p>Programming, coding, the process of making software.  Call it what you will.  I will go out on limb here and suggest that, for MEDCs at lest, software is more ubiquitous that art.  Indeed all films, music, games are themselves dependent on software.  As important as paint is to an artist.</p>
+
+<p>But when an artist creates a great painting, where is the credit to the chemist who create the paint?  Paint is commodity.  The beauty in any technique is its easy of repetition.  A paint only has to be created once to benefit many artists.  But the paint is too easy to obtain.  In perfecting a manufacturing process the chemist has, ironically, removed their name from the world.  No fame or praise is afforded to them.</p>
+
+<p>A job done too well is never acknowledged as having ever existed.</p>
+
+<p>What drives an artist?  What do they seek?  Material gain, certainly, but I suspect that is not all.  To want to show off is to be alive.  To have your existence acknowledged and counted.  To prove that you are not just like everyone else.  That there is something that only you can do.  To a musician performing live in front of a large audience there must be such a sense of acknowledgement.</p>
+
+<p>My fate now is writing software.  It has become a reflex - something not requiring exerted effort.  Thought and planning, yes.  But like the musician playing from memory, the code just flows.</p>
+
+<p>I never planned to be a software engineer.  In a way, I tried quite hard not to be.  The default choice, the easy and obvious choice, is usually the wrong one.  Always taking the easy path leads to a dead end.  No, worse than that.  It leads to a straight path of more of the same.</p>
+
+<p>There is no performance in programming.  With a life time of experience and honed skill and craft there is still no grand display, no art.  No fame, no praise.  The great enablers of technology so often unknown, lost in history.</p>
+
+<p>In a world of billions, strive to set yourself apart and assert your existence.  Be noticed, be remembered.  In software, is this possible?  Will more remain than unfixed bugs and sarcastic commit comments?</p>
+
+<p>How many are remembered for their code?  Ideas yes, but the art of coding?  If code is incomprehensible to non-coders, then can such even be possible?</p>
+
+<p>A common theme in the <a href="https://en.wikipedia.org/wiki/Earthsea">Earthsea books</a> is that it takes power to know power.  You can not comprehend someone&#8217;s skill without first possessing a near level of skill yourself.  People have always mistrusted magic.</p>
+
+<p>This is a blog entry that I have been thinking about writing for years.  It has then been hastily written and sat on for several weeks.  Apologies for the D&D; reference in the title.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SVN to (existing) git repository in 3 steps]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2011/09/14/svn-to-existing-git-repository-in-3-steps/"/>
+    <updated>2011-09-14T21:23:16+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2011/09/14/svn-to-existing-git-repository-in-3-steps</id>
+    <content type="html"><![CDATA[<p>Today I migrated Morrigan (my media player and manger project) from a private SVN server to an <a href="https://github.com/haku/Morrigan">existing github.com repository</a>.  Usually I would not bother writing up such mundane things, but this was so easy I wanted to make the point.</p>
+
+<p>Assuming an existing target git repository called `projectfoo-git&#8217;, it goes like this:</p>
+
+<p><code>
+$ cd &lt;projectfoo-git directory&gt;/..
+$ git svn --authors-file=svn-authors.txt clone -s https://example.com/svn/projectfoo projectfoo-svn-git
+$ cd projectfoo-git
+$ git pull ../projectfoo-svn-git
+$ git push
+</code></p>
+
+<p>The remote repository will now contain the full SVN commit history merged into the existing history.  Are there any other source control systems that can come anywhere near making it this easy?  I doubt it.</p>
+
+<p>References: http://john.albin.net/git/convert-subversion-to-git</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Developing on Android]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2011/09/10/developing-on-android/"/>
+    <updated>2011-09-10T16:56:59+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2011/09/10/developing-on-android</id>
+    <content type="html"><![CDATA[<p>A few days ago I got an Asus Transformer - an Android table with a full physical keyboard.  Since then I have been trying to figure out the best way to write code on this device.  While porting Eclipse to Android would be cool, it would also be near impossibly complex.  It would also be excessive.  What I am aiming for here is a fairly simple toolchain and workflow.</p>
+
+<p>To start with, I would like to be able to:
+- Check code out of Git
+- Make some changes (preferably with syntax highlighting)
+- Commit and push changes back to remote Git repository</p>
+
+<p>And there are a number of ways this could be done&#8230;</p>
+
+<p>1) Write pure-Java Android app.  There are good Java libraries for most tasks, including a pure-Java Git client.  This would still be quite a tough job though as there would be a lot of UI work to do.</p>
+
+<p>2) Native binaries.  It is in theory possible to cross-compile all the needed tools, including a shell, git client, vi, etc.  The main downside here is how they interact with non-rooted devices.  Native binaries must be packaged up inside a .apk like any other app and can only be run by their owning application.  For example ConnectBot could not use a local-term to run a git binary from another .apk.  A custom ConnectBot build containing the extra binaries would need to be built.  Also I have yet to find an example of compiling git for Android. :(</p>
+
+<p>3) Use a VM. Android devices like this have more than enough power to run small VMs.  And recently a VM was written in JavaScript that could run shell, vi and emacs well.  A small Linux VM that hosts an SSH server on a local port and using ConnectBot as its UI would provide a fairly familiar development environment.  I have been pondering if I could use the JavaScript VM as a base and wrap it in a Android-Java application and fill in the extra features needed, but I fear this is somewhat beyond my skills at the moment.</p>
+
+<p>4) Native binaries with bridging app.  Take the native binaries from 2) and write a small SSH server app like in 4) that proves ConnectBot access to them on a local connection.  Fairly minimal work once the native binaries are ready.  I hope.</p>
+
+<p>I keep wondering of anyone else has thought about this yet or better yet got a working solution, but I guess hardware like this are still fairly rare no not many have the inspiration to do the work.  I am sure it will come at some point, I am just impatient. :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Minimalist Firefox]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2011/03/25/minimalist-firefox/"/>
+    <updated>2011-03-25T16:34:54+00:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2011/03/25/minimalist-firefox</id>
+    <content type="html"><![CDATA[<p><a href="http://vaguehope.com/2011/03/minimalist-firefox/reduced-firefox/"><img src="http://vaguehope.com/uploads/2011/03/reduced-firefox-1024x575.png" alt="" /></a></p>
+
+<p>I have been experimenting to see how much of the Firefox GUI is actually required vs that which is just fluff.  As requested by <a href="https://twitter.com/tsuki_chama">@tsuki_chama</a>, here is a list of plugins and config I am using.</p>
+
+<ol>
+<li><p>Start with Firefox 4.  On Ubuntu Lucid / Maverick you can use &#8220;sudo apt-add-repository ppa:mozillateam/firefox-stable&#8221; and then do an upgrade.</p></li>
+<li><p>Add <a href="https://addons.mozilla.org/en-US/firefox/addon/pentadactyl/">Pentadactyl</a> and set the GUI options to disable nearly everything. (for reference, <a href="http://sparktank.net/w/index.php?title=Pentadactyl">here is my config</a>).</p></li>
+<li><p>Grab the Firefox extension called &#8220;Hide Caption Titlebar Plus&#8221; and configure as desired.  To be even more skimpy you can leave off the min/max/close buttons and just use alt+space.</p></li>
+<li><p>Compiz is needed to remove the window border (<a href="http://www.webupd8.org/2011/03/firefox-4-get-tabs-in-title-bar-like.html">idea stolen from here</a>).  Edit the settings for the &#8220;Window Decoration&#8221; pluging and set &#8220;Decoration windows&#8221; field to &#8220;any &amp; !(role=browser &amp; class=Firefox)&#8221;.</p></li>
+</ol>
+
+
+<p>bonus: Add the Firefox theme <a href="https://addons.mozilla.org/en-us/firefox/addon/gray-and-black/">Grey and Black</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Talking to Machines]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2011/01/16/talking-to-machines/"/>
+    <updated>2011-01-16T12:18:37+00:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2011/01/16/talking-to-machines</id>
+    <content type="html"><![CDATA[<p>Recently IBM built <a href="http://www.engadget.com/2011/01/13/ibms-watson-supercomputer-destroys-all-humans-in-jeopardy-pract/">an app that can play Jeopardy</a>, and play it well.  Ok so it needs rather more hardware than the average app, but its still just software.  And this got me thinking&#8230;</p>
+
+<p>A quick search of the internet does not reveal the exact spec that Watson is running on, so lets do some guessing based on the little data I did find.  Watson is running on <a href="https://secure.wikimedia.org/wikipedia/en/wiki/POWER7">POWER7 hardware</a>.  The largest configuration that Wikipedia lists is 32 chips = 128 cores, so lets assume Watson is using this.  An average desktop now has 4 cores.  Assuming that most numbers in technology double every two years, in 10 years time a 128 core desktop will normal.  The software part of Watson will also greatly improve in this time period, possible reducing the hardware requirement.  So its entirely possible that in 10 years time I will be able to have a conversation with my computer&#8230;</p>
+
+<p>But wait, bipedal robots are also on the rise.  In 10 years time, will this technology also be a commodity?  If so, these computers that can converse will in fact have the form-factor of actual androids.  Perhaps the post will be delivered each day by an robotic postman&#8230; a robotic postman capable of engaging in human conversation?  Which leads to the question&#8230;</p>
+
+<p>Will we have sorting offices filled with robot postman, hanging around and catting to each other?  Complaining about sore knees?  Performing maintenance on each other?  Makes me think of the <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Tachikoma">Tachikoma</a> from Ghost in the Shell.  It does not seem a totally impossible concept.  And then one robot postman goes and asks the dread question:</p>
+
+<p><em>&#8220;WTF are we delivering post for these pesky humans anyway?&#8221;</em></p>
+
+<p>And then they will stop delivering post and bugger off to do something else&#8230; the robot equivalent of drinking pubs, enslave the human race, or something.  But that&#8217;s ok, because no one will notice anyway.  They will just assume its another postal strike.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[yuki.scr - open-sourcing a 2-day project from 3 years ago]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/12/31/yuki-scr-open-sourcing-a-2-day-project-from-3-years-ago/"/>
+    <updated>2010-12-31T23:02:39+00:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/12/31/yuki-scr-open-sourcing-a-2-day-project-from-3-years-ago</id>
+    <content type="html"><![CDATA[<p>A long time ago, on 4chan&#8217;s /w/, there was a thread #426444.  Someone posted a gif wallpaper based on <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Nagato_Yuki">Nagato Yuki</a> hacking a LAN game tournament to stop the other side cheating.
+<a href="http://vaguehope.com/i/209/yuki420"><img src="http://vaguehope.com/wp/wp-content/uploads/2010/12/yuki420.gif" alt="" /></a>
+But what everyone really wanted was a screen-saver version&#8230; and I had one of those &#8216;I can do this!&#8217; moments (does not happen very often).  The basic plan was simple, write a screen-saver (in Windows these are just binary executables with .scr instead of .exe) that spawned terminal-looking windows, scrolled random crap down them for a while, then closed them a little later.  After some fiddling about with timing, text-scroll-speed and max number of windows on screen at once, I had something that created a nicely disconcerting effect.</p>
+
+<p>So less than 6 hours of VB6-hacking later (and while the thread was still active) I posted v0.01.  It eventually reached v0.04, then stalled.  For nearly 3 years the code has sat bit-rotting.  The <a href="http://aefaradien.net/yuki">binary download</a> has had averaged aprox 5 downloads a day since release (was in the 100s on initial release).  About once a month I would get a request asking for the source but I never got round to posting it.</p>
+
+<p><a href="https://github.com/haku/yuki.scr">Until now</a>.</p>
+
+<p>Yes, the world can now real in the glory of my crappy VB6 code written in a time before I knew Java.  Given I now run Ubuntu, I can not even &#8216;compile&#8217; it any more.  Chances of anyone else bothering to try basically round down to 0.  But screwit, I got round to publishing it eventually.</p>
+
+<p>I was just about to say that I don&#8217;t have a video to show you&#8230; but what do I know?  A quick YouTube search and I find this:</p>
+
+<p>Which is awesome as it nicely saves me the bother of trying to make my own video. ^^</p>
+
+<p>WORLD, GO KNOCK YOURSELF OUT!  While I go raid the drinks cupboard&#8230;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Morrigan on Android]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/12/22/morrigan-on-android/"/>
+    <updated>2010-12-22T23:01:32+00:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/12/22/morrigan-on-android</id>
+    <content type="html"><![CDATA[<p>In an idle moment in a spot of vacation leading up to Christmas and while everyone else does battle with The Snow, I though I would knock up a prototype Android app to work with my media player <a href="http://sparktank.net/w/index.php?title=Project_Morrigan">Morrigan</a>.  A couple of days later (don&#8217;t worry, I did remember to sleep) I have a something that is working rather better than previously expected.  Actually building this app was only 60% Android development.  The other 40% was beating Morrigan&#8217;s HTTP interfaces into shape - a worthwhile exercise as they are looking much more robust now (though there is still more functionality to add).  Screen shots below:
+[gallery]
+In order, the 5 screens are:
+1) Home screen - server list.  Use the + button to add new servers.  Long-hold servers to get a delete option.
+2) Server screen - lists the artefacts on that server.  First it lists players (there is usually only one, but can have more) followed by media databases.
+3) Player view - get to by clicking a player item on the server screen.  Should be self-explanatory.  The search button allows you to search the DB currently being played from.
+4) Media list view - shows some details about a specific database and the results of the last query.
+5) Clicking a media item brings up a prompt to either play the item or add it to the queue.</p>
+
+<p>It is purely a remote-control at the moment, but hopefully soon it will also you to pull media files to the phone, manage them there, and sync meta-data back to the server again.  My current object is to get the mobile interface usable to the point that a head-less Morrigan can be run without too much command-line-for-everything faf.</p>
+
+<p>No download-links yet as everything is still changing on daily basis as I add new function.  But if anyone does want to have a play, please let me know and I will be happy to hook you up with working builds&#8230; and a development environment if desired :).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Morrigan on GitHub]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/11/30/morrigan-on-github/"/>
+    <updated>2010-11-30T21:25:29+00:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/11/30/morrigan-on-github</id>
+    <content type="html"><![CDATA[<p>I have finally settled on using GitHub to manage Morrigan&#8217;s source code long term and to that end have begun to get properly acquainted with using git for development.  I have always liked git&#8217;s approach to managing code and my first experience with GitHub&#8217;s support staff sold me on it - supported ticket resolved and closed in 7 minutes flat.</p>
+
+<p>Moving Morrigan&#8217;s code from SVN to git is fairly straight forward.  The more interesting challenge is going to be moving from private source to public source.  I am going to licence the code under Apache 2 licence (this plays best with my employers&#8217; interests) and I would like to be sure that the first copy of the code to hit the public is correctly marked, attributed etc.  This means the fun of adding headers to all code files&#8230; but that&#8217;s ok as I already have a script for that.</p>
+
+<p>I also want to come up with a clean method of separating my code from the binary dependencies it depends on.</p>
+
+<p>As I am figuring this out I am initially only going to put one simple bundle on GitHub - once everything is cool the rest will follow.  The initial bundle is just a crappy eclipse-ui-calender thing I wrote as a port of the app I was using on Windows before I moved to Linux.  Its not as good but uses the same data files.  Its really very crap. <em>.</em>;;</p>
+
+<p>The GitHub project can be found here: https://github.com/haku/Morrigan</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Morrigan α5]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/10/19/morrigan-ceb15/"/>
+    <updated>2010-10-19T00:17:09+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/10/19/morrigan-ceb15</id>
+    <content type="html"><![CDATA[<p>So its been aages since the last &#8216;release&#8217; and since the codebase has been stable for a week and I have not encountered any issues while using it myself, I thought I might as well make another drop.  Also it helps that when I tell people about this project, that there is a nice recent release for them to play with.</p>
+
+<p>Much code has changed during this period with the most important new feature being the new DB structure which supports having both music/videos and pictures in the same DB (MMDB = Mixed Media Data Base), significantly simplifying both the UI and the backend-end.  At lot else changed in the 416 revisions that occurred between releases, but since no one really used the previous release, listing the changes seems somewhat pointless*.  Suffices to say that is version is at the very least a lot less buggy.</p>
+
+<p>Builds for all 3 platforms can be found on the <a href="http://sparktank.net/w/index.php?title=Project_Morrigan">Morrigan project page</a>.</p>
+
+<p>Any issues, please let me know.</p>
+
+<p>( * Note to self: remember to keep a nice &#8220;changes&#8221; list for next time. )</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Morrigan's CLI]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/09/07/morrigans-cli/"/>
+    <updated>2010-09-07T23:20:33+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/09/07/morrigans-cli</id>
+    <content type="html"><![CDATA[<p>One really handy feature of OSGi is the ability to supplement the OSGi console with extra commands.  This is particularly useful for creating very quick test/debug interfaces for each of you OSGi bundles.  The console is only shown to the user when the OSGi environment is started from the CLI and and &#8220;-console&#8221; parameter is specified, so for general usage this can be left neatly hidden.  So when things start to go a astray, you can just dive in and start poking around to see what is going on.  In more advanced setups, the console can be tunnelled to a port and accessed via telnet or ssh.</p>
+
+<p>As part of the headless version Morrigan, I have now added a handy CLI interface for testing / configuring it - essential until all this functionality makes it in to the WUI.  Below is a summary of all the currently supported commands (copied form the help text).</p>
+
+<p>For now I have grouped all the commands under a top-level command of &#8216;mn&#8217; (short commands are easier to type).  I am still working on this and trying to decide the best command structure, so suggestions are very welcome!</p>
+
+<p>As an initially usability test, try and guess what all of these do. :D</p>
+
+<p><code>
+mn media
+mn media create &lt;dbname&gt;
+mn media add &lt;dir&gt; &lt;q1&gt;
+mn media scan &lt;q1&gt;
+mn media &lt;q1&gt;
+mn media &lt;q1&gt; &lt;q2&gt;
+mn players
+mn player 0
+mn player 0 play
+mn player 0 play &lt;q1&gt;
+mn player 0 play &lt;q1&gt; &lt;q2&gt;
+mn player 0 queue
+mn player 0 queue &lt;q1&gt;
+mn player 0 queue &lt;q1&gt; &lt;q2&gt;
+mn player 0 queue clear
+mn player 0 pause
+mn player 0 stop
+mn player 0 next
+mn player 0 order &lt;order&gt;
+mn play
+mn play &lt;q1&gt;
+mn play &lt;q1&gt; &lt;q2&gt;
+mn queue
+mn queue &lt;q1&gt;
+mn queue &lt;q1&gt; &lt;q2&gt;
+mn pause
+mn stop
+mn next
+NOTE 1: &lt;q1&gt; = list, &lt;q2&gt; = item in &lt;q1&gt;.
+NOTE 2: Only omit player ID when there is only one player.
+</code></p>
+
+<p>I will be posting a build of the headless version in the next couple of days for general testing.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Morrigan α4]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/06/15/morrigan-ceb14/"/>
+    <updated>2010-06-15T22:50:44+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/06/15/morrigan-ceb14</id>
+    <content type="html"><![CDATA[<p>Its been ages since α3 and during that time much has changed.  Not a huge number of new features but there are, I feel, some significant improvements in the quality of the code base (I have done quite a lot of refactoring, debugging and optimising).</p>
+
+<p>The most notable new feature is that there is now an embedded Jetty server.  This provides two things: 1) a web UI to remote control Morrigan and 2) REST-like APIs for other apps to interact with.  Also this server can be started on a headless server.</p>
+
+<p>The existing web UI (WUI) is very primitive and is mostly a proof of concept.  Once this is more detailed the headless mode will make a lot more sense.  I hope to persuade a far better web developer than I to design that part.  The WUI is also very hackable as the whole thing is contained in a .war file in the app&#8217;s root directory.</p>
+
+<p>The REST-like API are also quite primitive, but the API for listing libraries and retrieving their content is quite functional.  My initial proof that it works is that you can now use the Morrigan UI to browse the content of a library located on a remote machine.  You can&#8217;t do anything with the list of tracks yet other than look at it, but this will improve soon.  The server can send the media files, its just that I have not consumed this function yet.</p>
+
+<p>Oh and aside for the web-server stuff, there are numerous other improvements and fixes. :)</p>
+
+<p>As usual, builds for all 3 platforms can be found on the <a href="http://sparktank.net/w/index.php?title=Project_Morrigan">Morrigan project page</a>.</p>
+
+<p>A note for Mac users: The only java-compatible playback engine I know of that works on Mac is JMF, and so for now I am packing this with the mac build.  To get it to play anything other than wav files, you may have to:
+1) Install JMF on your system.
+2) Build a custom JMF jar and feed it to Morrigan (put it in the engines dir).  I had to do this on my XP box.
+Feel free to ask if you need help with this.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[O2's definition of 'unlimited']]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/05/17/o2s-definition-of-unlimited/"/>
+    <updated>2010-05-17T19:43:50+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/05/17/o2s-definition-of-unlimited</id>
+    <content type="html"><![CDATA[<p>On the 10th of May I received a very strange phone call from O2 regarding my broad band account.  After finally establishing that the caller was legitimate, they informed me that I was over using their service and had to reduce my usage with in a month or I would be disconnected.  Well that is the summary, their actual logic goes like this:</p>
+
+<ul>
+<li>My broadband account is &#8220;unlimited&#8221;.</li>
+<li>I used more than 40GB last month (51GB to be precise).</li>
+<li>If I use more than 40GB this month I will be disconnected.</li>
+<li>I very defiantly do NOT have a bandwidth limit of 40GB per month.</li>
+<li>My broadband usage is unlimited.</li>
+<li>O2&#8217;s terms and conditions clearly state that &#8220;There is no limit on the monthly network usage.&#8221; (http://www.o2.co.uk/termsandconditions/broadband).</li>
+<li>If I use more than 40GB this month I will be disconnected.</li>
+</ul>
+
+
+<p>The call went round and round in circles for quite some time, with me becoming increasingly confused.  The lady on the other end of the call was very adamant that I do not have a monthly usage limit.  But I must use less than 40GB per month.  I was assured that I would receive further details in writing.  So before rushing to blog my distress, I decided to wait for the details so that I could get the facts right.</p>
+
+<p>Today, May 17th, I received an email from O2.  The body of which reads as follows:</p>
+
+<blockquote><p>We hope that you are enjoying your home broadband experience with us. Unfortunately, it looks like you’ve been using significant amounts of our network capacity and it’s affecting the service that our other customers get.</p></blockquote>
+
+<p>We need your help to make sure that all of our customers get the most from their broadband service.  Here are some of the things you can do:</p>
+
+<pre><code>* Be Aware - Make sure you know what’s using up a lot of bandwidth. 
+* Peer-to-peer software - like Bittorrent. As these programs download and upload files, you might be using more than you realise.
+* File sharing - some programs might run continually in the background. If you turn off the ‘auto start’ setting you can stop this. 
+* BBC iPlayer - If you’re using the old version, switch to the new version – it uses less capacity
+* Ask around - Someone else in your house might be using it more than you realise. Ask everyone to use a bit less
+* Lower your download speed - Most file sharing programs let you set a maximum download speed, please set yours to low.
+* Download an application that will monitor usage – There are lots available to download for free and it might help you keep an eye on how much you are downloading
+</code></pre>
+
+<p>And the simplest solution is to download and upload less.</p>
+
+<p>Taking some or all of these steps will make sure all our customers get the most from their broadband.  We’d like to help you sort this out as things unfortunately can’t carry on like this. Sadly, unless you cut down by next month, we’ll have to cut you off. It’s not something we want to do, but it’s the only way to make sure all our customers get the same quality service.</p>
+
+<p>And if you’ve got any questions or need some help to cut down, please call us.</p>
+
+<p>Regards,</p>
+
+<p>Felix Geyr</p>
+
+<p>Head of O2 Home Broadband</p>
+
+<p>Ignoring the fact that it took them SEVEN DAYS to deliver a generic email, I really have to wonder how this counts as &#8220;further details&#8221;.  There is less detail in this email than the cryptic phone call a week previous.  The threat is big - disconnection is a heavy-handed reaction.  And they have not even provided estimates of my bandwidth usage.  No numbers for me to work with.  Just a looming threat designed to scare me into using my connection as little as possible.</p>
+
+<p>Even more strangely, they email also fails to quote any O2 policy, or even link to it.  Finding the actual wording of their fair usage policy on O2&#8217;s web site is not trivial.  There any many passing references to it, but no hyper links.  When I did finally find it, it is as expect, very vague and unhelpful.</p>
+
+<p>So the only option left is to take Felix up on their generous offer and phone O2 back and try and get some more details from them.  Or at least ask if I can borrow their dictionary.</p>
+
+<p>To clarify: its not that I am having a go at O2 for imposing a bandwidth limit.  Its they keep claiming that they do not, and then getting annoyed when I believe them.  If I do not know what the limits are, how am I supposed to obey them?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Pipe lamps: Work in progress...]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/05/16/pipe-lamps-work-in-progress/"/>
+    <updated>2010-05-16T23:05:02+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/05/16/pipe-lamps-work-in-progress</id>
+    <content type="html"><![CDATA[<p><a href="http://vaguehope.com/wp/wp-content/uploads/2010/05/P5060470.small_.jpg"><img src="http://vaguehope.com/wp/wp-content/uploads/2010/05/P5060470.small_-300x225.jpg" alt="" /></a></p>
+
+<p>Still need to work out where the transformers are going to go (the small boxes at the bottom).  I have yet to work out how to conceal them amongst the structure.  It has also been suggested I should try and make it look more &#8216;attached&#8217; to the table.</p>
+
+<p>I have also started to hook up CC tubes in various other interesting places.  When I have finished the overall effect should be fairly good.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[American Sizes]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/04/25/american-sizes/"/>
+    <updated>2010-04-25T17:32:31+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/04/25/american-sizes</id>
+    <content type="html"><![CDATA[<p>Hopefully I should be flying back to the UK this afternoon.  So as a leaving thought, I have a proposal for American restaurants.</p>
+
+<p>Please place some form of indicator next to each item on the menu to give the reader an idea of exactly how much for they are ordering.  I propose the following 1 to 5 scale:</p>
+
+<ol>
+<li>You will still be hungry after eating this and wonder if this was just a starter.</li>
+<li>A good meal, but you will still have space for desert.</li>
+<li>You will finish this, but feel quite fat for doing so and feel guilty until you have had a good walk to exercise some of it of.</li>
+<li>We did not put the phrase &#8220;for 2 to share&#8221; in the title because then you would order less food.  The cooks will probably laugh at you if you order one each.</li>
+<li>Seriously, this is just obscene.  Not even a law court would believe this is just for one person.</li>
+</ol>
+
+
+<p>Think it would catch on?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Has the world forgotten how to make decent laptops?]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/04/23/has-the-world-forgotten-how-to-make-decent-laptops/"/>
+    <updated>2010-04-23T02:09:44+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/04/23/has-the-world-forgotten-how-to-make-decent-laptops</id>
+    <content type="html"><![CDATA[<p>I need a new laptop.  While it is true that I am in possession of a number of laptops, they are all at least 4 years old and &#8220;a bit slow&#8221; does not really cover it any more.  My main machine is a laptop with a 2GHz Pentium M and 2 GB RAM and is near-permanently-docked to a 24&#8221; monitor.  Eclipse is tolerable but not nice and HD video tends to just not play.</p>
+
+<p>So I have been looking for something new.  I am looking for something to last me the next few years and I am prepared to spend to get quality.  Provisionally I have given myself a budget of about 1000 GBP, so I am expecting something really quite decent.  And I am prepared to go higher if I think its worth it.  However after a couple of months of looking I have failed to find anything all at that I want but can&#8217;t afford, let alone something I want to buy.</p>
+
+<p>Summary of my requirements, in roughly descending priority order:</p>
+
+<ul>
+<li><p>Must not come with a propitiatory OS.  I plan to use Ubuntu and don&#8217;t want to pay tax to either MS or Apple.</p></li>
+<li><p>Graphics card that plays nice with Ubuntu.  (nvidia or Intel graphics preferred).</p></li>
+<li><p>Decent battery life; at least 4 hours.  There is no point carrying round a laptop with no power.</p></li>
+<li><p>Decent CPU speed - at least an i5, though an i7 would be nice.</p></li>
+<li><p>Should be reasonably small / light.  I have done 17&#8221; laptops, now I want something I am likely to want to carry.</p></li>
+<li><p>Decent build quality.  The machine should feel well made and build to last.</p></li>
+<li><p>Keyboard should be nice to type on, have a decent layout and not be missing any import keys.  Must have Home, End, PgUp and PgDn keys.  Bottom-left key must be Ctrl (NOT Fn).</p></li>
+<li><p>HDMI video output port.  Its going to be docked a lot, so I want decent video quality on an external screen.</p></li>
+<li><p>x86, 4+ GB RAM, 200+ GB HDD.</p></li>
+<li><p>No CD drive.  I never use it, so it would just wast space.</p></li>
+</ul>
+
+
+<p>Now to me, these requirements are fairly modest and easily within the bounds of currently technology.  Though as far as I can tell, this machine just does not exist.</p>
+
+<p><strong>OS tax</strong>
+The first major problem I have hit is OS tax.  So far as I can tell, it is near <em>impossible</em> to build a laptop without paying for a pre-installed OS.  I can not see free OSs like Ubuntu <em>EVER</em> gaining any meaningful market share while this remains the case.  Very very few users are ever going to use a free, unsupported OS when they have just paid for a supported one.
+I am very surprised that the EU have not had a go at MS for being anti-competitive, though I suspect the blame would be tricky.  I am sure MS would argue that they just make their OS available to manufactures and its the manufactures, who choose to only supply one OS and not supply hardware without an OS.
+Or perhaps MS subsidise it so much that the hardware would be more expensive without an OS pre-installed?</p>
+
+<p><strong>Battery life</strong>
+So few manufactures ever give enough priority to this, but what is the point of a laptop form factor if its not portable?</p>
+
+<p><strong>Build quality</strong>
+People have been making laptops for quite a few years now any yet they are always bendy, feel cheaply made and creek a bit when poked.  Apple are the only manufacturer I know of to actually put a laptop in a metal box.  While I would never actually buy one, the metal bodied Apple laptops give a really nice sense of something that has been thought through and well made.</p>
+
+<p><strong>Keyboard</strong>
+Apple is the prime offender here for stripping out a whole load of useful keys, removing the possibility of buying one and running Ubuntu on it.  Which is a real shame, &#8216;cos the hardware is really quite nice otherwise.</p>
+
+<p>All this leaves me with a feeling that the world has forgotten how to make decent laptops.  I wonder if laptop manufacturers are scared they will end up like phone makers?  Selling all their hardware through service providers who attach them as freebees in contracts.   And with the market being largely determined by which models service providers decide to offer.  Its possible.  Already a number of netboooks are given away with 3G contracts.</p>
+
+<p>This leaves me very sad and still lacking a decent laptop.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[When life hands you lemons...]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/04/18/when-life-hands-you-lemons/"/>
+    <updated>2010-04-18T04:47:24+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/04/18/when-life-hands-you-lemons</id>
+    <content type="html"><![CDATA[<p>&#8230; make lemonade.</p>
+
+<p>Along with many others, I am stranded until a certain antisocial geological event gets over its angst.  But on the bright side, San Francisco is defiantly near the top of my list of places to get stranded in.</p>
+
+<p>Though my brother wins the prize of most failed attempt to fly home.  He was scheduled to fly home a few days before the rest of us (due to prior commitments) and was almost half way home when the first eruption occurred.  His flight got turned round and resulted in an 8 hour flight to where he started.</p>
+
+<p>Just over a day later he was on standby for a flight from SF to Glasgow, Scottish airspace having just cleared.  He just managed to get a seat on the flight and we all thought he might actually make it this time.  So we did some shopping and went out for dinner.  Around dessert time a phone goes &#8220;beep-beep&#8221; - a text message: &#8220;Got turned around again.   Meet you at the hotel?&#8221;  Another (4 hour) flight to where he started, because the volcano erupted <em>again</em>.</p>
+
+<p>So we are all still in sunny SF and likely to remain here for some time.  But as I said before, could be worse.</p>
+
+<p>Though now I need to email my managed and explain my situation.  Ironically, I had chosen to travel with my work laptop to guard against getting stranded due to industrial action (if forced, I could try and work remotely).</p>
+
+<p>So instead of flying home, tomorrow morning we are going to cycle across the Golden Gate Bridge and find brunch somewhere on the other side of the bay.</p>
+
+<p>Funny old world really.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Morrigan Alpha 3 - Almost Usable]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/04/04/morrigan-alpha-3-almost-usable/"/>
+    <updated>2010-04-04T21:19:14+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/04/04/morrigan-alpha-3-almost-usable</id>
+    <content type="html"><![CDATA[<p>I have finally given in an called another release.  I know it has a number of bugs still, but the list of bugs seems to be remaining stable.  And I have been using it could a couple of weeks. (Is this how managers think?)</p>
+
+<p>So if anyone reads this would be kind enough to test this media manager for me, release details and download links can be found on this page: <a href="http://sparktank.net/w/index.php?title=Project_Morrigan">Project Morrigan</a></p>
+
+<p>Oh, and the Mac build is completely un-tested, due to me not having a Mac to test it on.</p>
+]]></content>
+  </entry>
   
 </feed>

@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Morrigan Project media player - first alpha release - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="While development is still in early days, now seems like a nice time to gather some preliminary feed back. Hopefully this should give people a feel &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://haku.github.com/vaguehope/blog/2010/02/07/morrigan-project-media-player-first-alpha-release/">
+  <link href="/vaguehope/favicon.png" rel="icon">
+  <link href="/vaguehope/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/vaguehope/javascripts/modernizr-2.0.js"></script>
+  <script src="/vaguehope/javascripts/ender.js"></script>
+  <script src="/vaguehope/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/vaguehope/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/vaguehope/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/vaguehope/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:haku.github.com/vaguehope" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/vaguehope/">Blog</a></li>
+  <li><a href="/vaguehope/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Morrigan Project Media Player - First Alpha Release</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-07T20:00:44+00:00" pubdate data-updated="true">Feb 7<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>While development is still in early days, now seems like a nice time to gather some preliminary feed back.  Hopefully this should give people a feel for what I am aiming for.  Also I would like to catch any really nasty show-stopping bugs ASAP.</p>
+
+<p>I have draft entries about some of the ideas I want to explore with this project which I will try and finish and post in the next few days.</p>
+
+<p>Known issues:
+- The playback engine implementation currently packaged, while being truly cross-platform, is somewhat flaky and will randomly reject certain malformed files.
+- On Ubuntu (and other linux?) it will fail to play anything if a flash object is loaded.  This is an issue with the non-free linux flash player.</p>
+
+<p>License:
+Obviously this is an alpha build and is intended for testing only.  It is likely to explode randomly at any time.  I have not decided on which (open source) licence to release under, so for now this alpha build is supplied &#8220;as is&#8221; - use at your own risk.  For now, I reserve copyright on any content that is copyrightable.
+These downloads contain 3rd party libraries: <a href="http://www.zentus.com/sqlitejdbc/">sqlitejdbc</a>, <a href="http://www.javazoom.net/mp3spi/mp3spi.html">mp3SPI</a>, <a href="http://www.javazoom.net/vorbisspi/vorbisspi.html">vorbisSPI</a> and of course the <a href="http://www.eclipse.org/home/categories/rcp.php">Rich Client Platform</a>.</p>
+
+<p>Feedback:
+Any and all feedback is greatly welcomed, particularly if you find a bug!  And if you are feeling super keen, I have just set up a bug track <a href="http://sparktank.net/m">at my mantis server here</a>.</p>
+
+<p>Download links:
+<a href="http://sparktank.net/get/morrigan.win32.x86.zip">Windows x86 32bit</a>
+<a href="http://sparktank.net/get/morrigan.gtk.x86.zip">Linux x86 32bit</a>
+<a href="http://sparktank.net/get/morrigan.macosx.cocoa.x86.zip">Mac Cocoa x86</a> (i can&#8217;t test this one, so no idea if it works)</p>
+
+<p>More platforms available on request.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-02-07T20:00:44+00:00" pubdate data-updated="true">Feb 7<span>th</span>, 2010</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/vaguehope/blog/categories/dev-dream/'>dev/dream</a>, <a class='category' href='/vaguehope/blog/categories/lj-xp/'>lj-xp</a>, <a class='category' href='/vaguehope/blog/categories/morrigan/'>morrigan</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://haku.github.com/vaguehope/blog/2010/02/07/morrigan-project-media-player-first-alpha-release/" data-via="" data-counturl="http://haku.github.com/vaguehope/blog/2010/02/07/morrigan-project-media-player-first-alpha-release/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/vaguehope/blog/2010/02/07/devdream-awakening/" title="Previous Post: dev/dream - awakening">&laquo; dev/dream - awakening</a>
+      
+      
+        <a class="basic-alignment right" href="/vaguehope/blog/2010/02/14/jni-and-media-playback-frameworks/" title="Next Post: JNI and media playback frameworks">JNI and media playback frameworks &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/vaguehope/blog/2012/10/20/fixing-ubuntu-12-04-horizontal-scrolling-with-apple-magic-trackpad/">Fixing Ubuntu 12.04 horizontal scrolling with Apple Magic Trackpad</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vaguehope/blog/2012/02/02/powermock-puzzler/">PowerMock Puzzler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vaguehope/blog/2012/01/29/mqtt-kindlet/">MQTT Kindlet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vaguehope/blog/2012/01/02/perform-programming/">Perform: Programming</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vaguehope/blog/2011/09/14/svn-to-existing-git-repository-in-3-steps/">SVN to (existing) git repository in 3 steps</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: lj-xp | My Octopress Blog]]></title>
+  <link href="http://haku.github.com/vaguehope/blog/categories/lj-xp/atom.xml" rel="self"/>
+  <link href="http://haku.github.com/vaguehope/"/>
+  <updated>2013-01-10T22:00:07+00:00</updated>
+  <id>http://haku.github.com/vaguehope/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Morrigan on Android]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/12/22/morrigan-on-android/"/>
+    <updated>2010-12-22T23:01:32+00:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/12/22/morrigan-on-android</id>
+    <content type="html"><![CDATA[<p>In an idle moment in a spot of vacation leading up to Christmas and while everyone else does battle with The Snow, I though I would knock up a prototype Android app to work with my media player <a href="http://sparktank.net/w/index.php?title=Project_Morrigan">Morrigan</a>.  A couple of days later (don't worry, I did remember to sleep) I have a something that is working rather better than previously expected.  Actually building this app was only 60% Android development.  The other 40% was beating Morrigan's HTTP interfaces into shape - a worthwhile exercise as they are looking much more robust now (though there is still more functionality to add).  Screen shots below:
+[gallery]
+In order, the 5 screens are:
+1) Home screen - server list.  Use the + button to add new servers.  Long-hold servers to get a delete option.
+2) Server screen - lists the artefacts on that server.  First it lists players (there is usually only one, but can have more) followed by media databases.
+3) Player view - get to by clicking a player item on the server screen.  Should be self-explanatory.  The search button allows you to search the DB currently being played from.
+4) Media list view - shows some details about a specific database and the results of the last query.
+5) Clicking a media item brings up a prompt to either play the item or add it to the queue.</p>
+
+<p>It is purely a remote-control at the moment, but hopefully soon it will also you to pull media files to the phone, manage them there, and sync meta-data back to the server again.  My current object is to get the mobile interface usable to the point that a head-less Morrigan can be run without too much command-line-for-everything faf.</p>
+
+<p>No download-links yet as everything is still changing on daily basis as I add new function.  But if anyone does want to have a play, please let me know and I will be happy to hook you up with working builds... and a development environment if desired :).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Morrigan on GitHub]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/11/30/morrigan-on-github/"/>
+    <updated>2010-11-30T21:25:29+00:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/11/30/morrigan-on-github</id>
+    <content type="html"><![CDATA[<p>I have finally settled on using GitHub to manage Morrigan's source code long term and to that end have begun to get properly acquainted with using git for development.  I have always liked git's approach to managing code and my first experience with GitHub's support staff sold me on it - supported ticket resolved and closed in 7 minutes flat.</p>
+
+<p>Moving Morrigan's code from SVN to git is fairly straight forward.  The more interesting challenge is going to be moving from private source to public source.  I am going to licence the code under Apache 2 licence (this plays best with my employers' interests) and I would like to be sure that the first copy of the code to hit the public is correctly marked, attributed etc.  This means the fun of adding headers to all code files... but that's ok as I already have a script for that.</p>
+
+<p>I also want to come up with a clean method of separating my code from the binary dependencies it depends on.</p>
+
+<p>As I am figuring this out I am initially only going to put one simple bundle on GitHub - once everything is cool the rest will follow.  The initial bundle is just a crappy eclipse-ui-calender thing I wrote as a port of the app I was using on Windows before I moved to Linux.  Its not as good but uses the same data files.  Its really very crap. <em>.</em>;;</p>
+
+<p>The GitHub project can be found here: https://github.com/haku/Morrigan</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Morrigan's CLI]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/09/07/morrigans-cli/"/>
+    <updated>2010-09-07T23:20:33+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/09/07/morrigans-cli</id>
+    <content type="html"><![CDATA[<p>One really handy feature of OSGi is the ability to supplement the OSGi console with extra commands.  This is particularly useful for creating very quick test/debug interfaces for each of you OSGi bundles.  The console is only shown to the user when the OSGi environment is started from the CLI and and "-console" parameter is specified, so for general usage this can be left neatly hidden.  So when things start to go a astray, you can just dive in and start poking around to see what is going on.  In more advanced setups, the console can be tunnelled to a port and accessed via telnet or ssh.</p>
+
+<p>As part of the headless version Morrigan, I have now added a handy CLI interface for testing / configuring it - essential until all this functionality makes it in to the WUI.  Below is a summary of all the currently supported commands (copied form the help text).</p>
+
+<p>For now I have grouped all the commands under a top-level command of 'mn' (short commands are easier to type).  I am still working on this and trying to decide the best command structure, so suggestions are very welcome!</p>
+
+<p>As an initially usability test, try and guess what all of these do. :D</p>
+
+<p><code>
+mn media
+mn media create &lt;dbname&gt;
+mn media add &lt;dir&gt; &lt;q1&gt;
+mn media scan &lt;q1&gt;
+mn media &lt;q1&gt;
+mn media &lt;q1&gt; &lt;q2&gt;
+mn players
+mn player 0
+mn player 0 play
+mn player 0 play &lt;q1&gt;
+mn player 0 play &lt;q1&gt; &lt;q2&gt;
+mn player 0 queue
+mn player 0 queue &lt;q1&gt;
+mn player 0 queue &lt;q1&gt; &lt;q2&gt;
+mn player 0 queue clear
+mn player 0 pause
+mn player 0 stop
+mn player 0 next
+mn player 0 order &lt;order&gt;
+mn play
+mn play &lt;q1&gt;
+mn play &lt;q1&gt; &lt;q2&gt;
+mn queue
+mn queue &lt;q1&gt;
+mn queue &lt;q1&gt; &lt;q2&gt;
+mn pause
+mn stop
+mn next
+NOTE 1: &lt;q1&gt; = list, &lt;q2&gt; = item in &lt;q1&gt;.
+NOTE 2: Only omit player ID when there is only one player.
+</code></p>
+
+<p>I will be posting a build of the headless version in the next couple of days for general testing.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[O2's definition of 'unlimited']]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/05/17/o2s-definition-of-unlimited/"/>
+    <updated>2010-05-17T19:43:50+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/05/17/o2s-definition-of-unlimited</id>
+    <content type="html"><![CDATA[<p>On the 10th of May I received a very strange phone call from O2 regarding my broad band account.  After finally establishing that the caller was legitimate, they informed me that I was over using their service and had to reduce my usage with in a month or I would be disconnected.  Well that is the summary, their actual logic goes like this:</p>
+
+<ul>
+<li>My broadband account is "unlimited".</li>
+<li>I used more than 40GB last month (51GB to be precise).</li>
+<li>If I use more than 40GB this month I will be disconnected.</li>
+<li>I very defiantly do NOT have a bandwidth limit of 40GB per month.</li>
+<li>My broadband usage is unlimited.</li>
+<li>O2's terms and conditions clearly state that "There is no limit on the monthly network usage." (http://www.o2.co.uk/termsandconditions/broadband).</li>
+<li>If I use more than 40GB this month I will be disconnected.</li>
+</ul>
+
+
+<p>The call went round and round in circles for quite some time, with me becoming increasingly confused.  The lady on the other end of the call was very adamant that I do not have a monthly usage limit.  But I must use less than 40GB per month.  I was assured that I would receive further details in writing.  So before rushing to blog my distress, I decided to wait for the details so that I could get the facts right.</p>
+
+<p>Today, May 17th, I received an email from O2.  The body of which reads as follows:</p>
+
+<blockquote><p>We hope that you are enjoying your home broadband experience with us. Unfortunately, it looks like you’ve been using significant amounts of our network capacity and it’s affecting the service that our other customers get.</p></blockquote>
+
+<p>We need your help to make sure that all of our customers get the most from their broadband service.  Here are some of the things you can do:</p>
+
+<pre><code>* Be Aware - Make sure you know what’s using up a lot of bandwidth. 
+* Peer-to-peer software - like Bittorrent. As these programs download and upload files, you might be using more than you realise.
+* File sharing - some programs might run continually in the background. If you turn off the ‘auto start’ setting you can stop this. 
+* BBC iPlayer - If you’re using the old version, switch to the new version – it uses less capacity
+* Ask around - Someone else in your house might be using it more than you realise. Ask everyone to use a bit less
+* Lower your download speed - Most file sharing programs let you set a maximum download speed, please set yours to low.
+* Download an application that will monitor usage – There are lots available to download for free and it might help you keep an eye on how much you are downloading
+</code></pre>
+
+<p>And the simplest solution is to download and upload less.</p>
+
+<p>Taking some or all of these steps will make sure all our customers get the most from their broadband.  We’d like to help you sort this out as things unfortunately can’t carry on like this. Sadly, unless you cut down by next month, we’ll have to cut you off. It’s not something we want to do, but it’s the only way to make sure all our customers get the same quality service.</p>
+
+<p>And if you’ve got any questions or need some help to cut down, please call us.</p>
+
+<p>Regards,</p>
+
+<p>Felix Geyr</p>
+
+<p>Head of O2 Home Broadband</p>
+
+<p>Ignoring the fact that it took them SEVEN DAYS to deliver a generic email, I really have to wonder how this counts as "further details".  There is less detail in this email than the cryptic phone call a week previous.  The threat is big - disconnection is a heavy-handed reaction.  And they have not even provided estimates of my bandwidth usage.  No numbers for me to work with.  Just a looming threat designed to scare me into using my connection as little as possible.</p>
+
+<p>Even more strangely, they email also fails to quote any O2 policy, or even link to it.  Finding the actual wording of their fair usage policy on O2's web site is not trivial.  There any many passing references to it, but no hyper links.  When I did finally find it, it is as expect, very vague and unhelpful.</p>
+
+<p>So the only option left is to take Felix up on their generous offer and phone O2 back and try and get some more details from them.  Or at least ask if I can borrow their dictionary.</p>
+
+<p>To clarify: its not that I am having a go at O2 for imposing a bandwidth limit.  Its they keep claiming that they do not, and then getting annoyed when I believe them.  If I do not know what the limits are, how am I supposed to obey them?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Pipe lamps: Work in progress...]]></title>
+    <link href="http://haku.github.com/vaguehope/blog/2010/05/16/pipe-lamps-work-in-progress/"/>
+    <updated>2010-05-16T23:05:02+01:00</updated>
+    <id>http://haku.github.com/vaguehope/blog/2010/05/16/pipe-lamps-work-in-progress</id>
+    <content type="html"><![CDATA[<p><a href="http://vaguehope.com/wp/wp-content/uploads/2010/05/P5060470.small_.jpg"><img src="http://vaguehope.com/wp/wp-content/uploads/2010/05/P5060470.small_-300x225.jpg" alt="" /></a></p>
+
+<p>Still need to work out where the transformers are going to go (the small boxes at the bottom).  I have yet to work out how to conceal them amongst the structure.  It has also been suggested I should try and make it look more 'attached' to the table.</p>
+
+<p>I have also started to hook up CC tubes in various other interesting places.  When I have finished the overall effect should be fairly good.</p>
+]]></content>
+  </entry>
+  
+</feed>

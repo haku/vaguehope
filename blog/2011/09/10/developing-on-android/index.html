@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Developing on Android - My Octopress Blog</title>
+  <meta name="author" content="Your Name">
+
+  
+  <meta name="description" content="A few days ago I got an Asus Transformer - an Android table with a full physical keyboard. Since then I have been trying to figure out the best way &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://haku.github.com/vaguehope/blog/2011/09/10/developing-on-android/">
+  <link href="/vaguehope/favicon.png" rel="icon">
+  <link href="/vaguehope/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/vaguehope/javascripts/modernizr-2.0.js"></script>
+  <script src="/vaguehope/javascripts/ender.js"></script>
+  <script src="/vaguehope/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/vaguehope/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/vaguehope/">My Octopress Blog</a></h1>
+  
+    <h2>A blogging framework for hackers.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/vaguehope/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:haku.github.com/vaguehope" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/vaguehope/">Blog</a></li>
+  <li><a href="/vaguehope/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Developing on Android</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-10T16:56:59+01:00" pubdate data-updated="true">Sep 10<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>A few days ago I got an Asus Transformer - an Android table with a full physical keyboard.  Since then I have been trying to figure out the best way to write code on this device.  While porting Eclipse to Android would be cool, it would also be near impossibly complex.  It would also be excessive.  What I am aiming for here is a fairly simple toolchain and workflow.</p>
+
+<p>To start with, I would like to be able to:
+- Check code out of Git
+- Make some changes (preferably with syntax highlighting)
+- Commit and push changes back to remote Git repository</p>
+
+<p>And there are a number of ways this could be done&#8230;</p>
+
+<p>1) Write pure-Java Android app.  There are good Java libraries for most tasks, including a pure-Java Git client.  This would still be quite a tough job though as there would be a lot of UI work to do.</p>
+
+<p>2) Native binaries.  It is in theory possible to cross-compile all the needed tools, including a shell, git client, vi, etc.  The main downside here is how they interact with non-rooted devices.  Native binaries must be packaged up inside a .apk like any other app and can only be run by their owning application.  For example ConnectBot could not use a local-term to run a git binary from another .apk.  A custom ConnectBot build containing the extra binaries would need to be built.  Also I have yet to find an example of compiling git for Android. :(</p>
+
+<p>3) Use a VM. Android devices like this have more than enough power to run small VMs.  And recently a VM was written in JavaScript that could run shell, vi and emacs well.  A small Linux VM that hosts an SSH server on a local port and using ConnectBot as its UI would provide a fairly familiar development environment.  I have been pondering if I could use the JavaScript VM as a base and wrap it in a Android-Java application and fill in the extra features needed, but I fear this is somewhat beyond my skills at the moment.</p>
+
+<p>4) Native binaries with bridging app.  Take the native binaries from 2) and write a small SSH server app like in 4) that proves ConnectBot access to them on a local connection.  Fairly minimal work once the native binaries are ready.  I hope.</p>
+
+<p>I keep wondering of anyone else has thought about this yet or better yet got a working solution, but I guess hardware like this are still fairly rare no not many have the inspiration to do the work.  I am sure it will come at some point, I am just impatient. :)</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-09-10T16:56:59+01:00" pubdate data-updated="true">Sep 10<span>th</span>, 2011</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://haku.github.com/vaguehope/blog/2011/09/10/developing-on-android/" data-via="" data-counturl="http://haku.github.com/vaguehope/blog/2011/09/10/developing-on-android/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/vaguehope/blog/2011/03/25/minimalist-firefox/" title="Previous Post: Minimalist Firefox">&laquo; Minimalist Firefox</a>
+      
+      
+        <a class="basic-alignment right" href="/vaguehope/blog/2011/09/14/svn-to-existing-git-repository-in-3-steps/" title="Next Post: SVN to (existing) git repository in 3 steps">SVN to (existing) git repository in 3 steps &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/vaguehope/blog/2012/10/20/fixing-ubuntu-12-04-horizontal-scrolling-with-apple-magic-trackpad/">Fixing Ubuntu 12.04 horizontal scrolling with Apple Magic Trackpad</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vaguehope/blog/2012/02/02/powermock-puzzler/">PowerMock Puzzler</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vaguehope/blog/2012/01/29/mqtt-kindlet/">MQTT Kindlet</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vaguehope/blog/2012/01/02/perform-programming/">Perform: Programming</a>
+      </li>
+    
+      <li class="post">
+        <a href="/vaguehope/blog/2011/09/14/svn-to-existing-git-repository-in-3-steps/">SVN to (existing) git repository in 3 steps</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Your Name -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
