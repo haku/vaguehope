@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: lj-xp | My Octopress Blog]]></title>
+  <title><![CDATA[Category: lj-xp | Vague Hope]]></title>
   <link href="http://octo.vaguehope.com/blog/categories/lj-xp/atom.xml" rel="self"/>
   <link href="http://octo.vaguehope.com/"/>
-  <updated>2013-01-10T22:07:12+00:00</updated>
+  <updated>2013-01-10T22:11:07+00:00</updated>
   <id>http://octo.vaguehope.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[haku]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
