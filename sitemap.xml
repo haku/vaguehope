@@ -1,169 +1,161 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://haku.github.com/vaguehope/blog/2009/11/20/hello-world/</loc>
+        <loc>http://octo.vaguehope.com/blog/2009/11/20/hello-world/</loc>
         <lastmod>2013-01-10T21:59:56+00:00</lastmod>
     </url>
     <url>
-        <loc>http://haku.github.com/vaguehope/blog/2009/12/08/devdream/</loc>
+        <loc>http://octo.vaguehope.com/blog/2009/12/08/devdream/</loc>
         <lastmod>2013-01-10T21:59:56+00:00</lastmod>
     </url>
     <url>
-        <loc>http://haku.github.com/vaguehope/blog/2010/01/10/google-accounts/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://haku.github.com/vaguehope/blog/2010/02/02/devdream-morrigan-development-week-off-to-a-late-start/
-        </loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/blog/2010/02/03/devdream-end-of-session-1/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/blog/2010/02/07/devdream-awakening/</loc>
+        <loc>http://octo.vaguehope.com/blog/2010/01/10/google-accounts/</loc>
         <lastmod>2013-01-10T21:59:56+00:00</lastmod>
     </url>
     <url>
         <loc>
-            http://haku.github.com/vaguehope/blog/2010/02/07/morrigan-project-media-player-first-alpha-release/
+            http://octo.vaguehope.com/blog/2010/02/02/devdream-morrigan-development-week-off-to-a-late-start/
         </loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/02/03/devdream-end-of-session-1/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/02/07/devdream-awakening/</loc>
         <lastmod>2013-01-10T21:59:56+00:00</lastmod>
     </url>
     <url>
         <loc>
-            http://haku.github.com/vaguehope/blog/2010/02/14/jni-and-media-playback-frameworks/
+            http://octo.vaguehope.com/blog/2010/02/07/morrigan-project-media-player-first-alpha-release/
         </loc>
         <lastmod>2013-01-10T21:59:56+00:00</lastmod>
     </url>
     <url>
-        <loc>http://haku.github.com/vaguehope/blog/2010/02/14/morrigan-alpha-2/</loc>
+        <loc>http://octo.vaguehope.com/blog/2010/02/14/jni-and-media-playback-frameworks/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/02/14/morrigan-alpha-2/</loc>
         <lastmod>2013-01-10T21:59:56+00:00</lastmod>
     </url>
     <url>
         <loc>
-            http://haku.github.com/vaguehope/blog/2010/02/21/gui-designs-frameworks-and-innovation-without-confusion/
+            http://octo.vaguehope.com/blog/2010/02/21/gui-designs-frameworks-and-innovation-without-confusion/
         </loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/02/28/when-to-deviate-from-conventions/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/03/24/morrigan-alpha-3-somewhat-delayed/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/03/30/arduino-serial-pain/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/04/04/morrigan-alpha-3-almost-usable/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/04/18/when-life-hands-you-lemons/</loc>
         <lastmod>2013-01-10T21:59:56+00:00</lastmod>
     </url>
     <url>
         <loc>
-            http://haku.github.com/vaguehope/blog/2010/02/28/when-to-deviate-from-conventions/
+            http://octo.vaguehope.com/blog/2010/04/23/has-the-world-forgotten-how-to-make-decent-laptops/
         </loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/04/25/american-sizes/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/05/16/pipe-lamps-work-in-progress/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/05/17/o2s-definition-of-unlimited/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/06/15/morrigan-ceb14/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/09/07/morrigans-cli/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/10/19/morrigan-ceb15/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/11/30/morrigan-on-github/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2010/12/22/morrigan-on-android/</loc>
         <lastmod>2013-01-10T21:59:56+00:00</lastmod>
     </url>
     <url>
         <loc>
-            http://haku.github.com/vaguehope/blog/2010/03/24/morrigan-alpha-3-somewhat-delayed/
+            http://octo.vaguehope.com/blog/2010/12/31/yuki-scr-open-sourcing-a-2-day-project-from-3-years-ago/
         </loc>
         <lastmod>2013-01-10T21:59:56+00:00</lastmod>
     </url>
     <url>
-        <loc>http://haku.github.com/vaguehope/blog/2010/03/30/arduino-serial-pain/</loc>
+        <loc>http://octo.vaguehope.com/blog/2011/01/16/talking-to-machines/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2011/03/25/minimalist-firefox/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2011/09/10/developing-on-android/</loc>
         <lastmod>2013-01-10T21:59:56+00:00</lastmod>
     </url>
     <url>
         <loc>
-            http://haku.github.com/vaguehope/blog/2010/04/04/morrigan-alpha-3-almost-usable/
+            http://octo.vaguehope.com/blog/2011/09/14/svn-to-existing-git-repository-in-3-steps/
         </loc>
         <lastmod>2013-01-10T21:59:56+00:00</lastmod>
     </url>
     <url>
-        <loc>http://haku.github.com/vaguehope/blog/2010/04/18/when-life-hands-you-lemons/</loc>
+        <loc>http://octo.vaguehope.com/blog/2012/01/02/perform-programming/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2012/01/29/mqtt-kindlet/</loc>
+        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://octo.vaguehope.com/blog/2012/02/02/powermock-puzzler/</loc>
         <lastmod>2013-01-10T21:59:56+00:00</lastmod>
     </url>
     <url>
         <loc>
-            http://haku.github.com/vaguehope/blog/2010/04/23/has-the-world-forgotten-how-to-make-decent-laptops/
+            http://octo.vaguehope.com/blog/2012/10/20/fixing-ubuntu-12-04-horizontal-scrolling-with-apple-magic-trackpad/
         </loc>
         <lastmod>2013-01-10T21:59:56+00:00</lastmod>
     </url>
     <url>
-        <loc>http://haku.github.com/vaguehope/blog/2010/04/25/american-sizes/</loc>
+        <loc>http://octo.vaguehope.com/</loc>
         <lastmod>2013-01-10T21:59:56+00:00</lastmod>
     </url>
     <url>
-        <loc>http://haku.github.com/vaguehope/blog/2010/05/16/pipe-lamps-work-in-progress/</loc>
+        <loc>http://octo.vaguehope.com/blog/archives/</loc>
         <lastmod>2013-01-10T21:59:56+00:00</lastmod>
     </url>
     <url>
-        <loc>http://haku.github.com/vaguehope/blog/2010/05/17/o2s-definition-of-unlimited/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/blog/2010/06/15/morrigan-ceb14/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/blog/2010/09/07/morrigans-cli/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/blog/2010/10/19/morrigan-ceb15/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/blog/2010/11/30/morrigan-on-github/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/blog/2010/12/22/morrigan-on-android/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://haku.github.com/vaguehope/blog/2010/12/31/yuki-scr-open-sourcing-a-2-day-project-from-3-years-ago/
-        </loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/blog/2011/01/16/talking-to-machines/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/blog/2011/03/25/minimalist-firefox/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/blog/2011/09/10/developing-on-android/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://haku.github.com/vaguehope/blog/2011/09/14/svn-to-existing-git-repository-in-3-steps/
-        </loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/blog/2012/01/02/perform-programming/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/blog/2012/01/29/mqtt-kindlet/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/blog/2012/02/02/powermock-puzzler/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://haku.github.com/vaguehope/blog/2012/10/20/fixing-ubuntu-12-04-horizontal-scrolling-with-apple-magic-trackpad/
-        </loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/blog/archives/</loc>
-        <lastmod>2013-01-10T21:59:56+00:00</lastmod>
-    </url>
-    <url>
-        <loc>http://haku.github.com/vaguehope/robots.txt</loc>
+        <loc>http://octo.vaguehope.com/robots.txt</loc>
         <lastmod>2013-01-10T21:42:45+00:00</lastmod>
     </url>
 </urlset>

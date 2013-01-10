@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: morrigan | My Octopress Blog]]></title>
-  <link href="http://haku.github.com/vaguehope/blog/categories/morrigan/atom.xml" rel="self"/>
-  <link href="http://haku.github.com/vaguehope/"/>
-  <updated>2013-01-10T22:00:07+00:00</updated>
-  <id>http://haku.github.com/vaguehope/</id>
+  <link href="http://octo.vaguehope.com/blog/categories/morrigan/atom.xml" rel="self"/>
+  <link href="http://octo.vaguehope.com/"/>
+  <updated>2013-01-10T22:07:12+00:00</updated>
+  <id>http://octo.vaguehope.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Morrigan on Android]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/12/22/morrigan-on-android/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/12/22/morrigan-on-android/"/>
     <updated>2010-12-22T23:01:32+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/12/22/morrigan-on-android</id>
+    <id>http://octo.vaguehope.com/blog/2010/12/22/morrigan-on-android</id>
     <content type="html"><![CDATA[<p>In an idle moment in a spot of vacation leading up to Christmas and while everyone else does battle with The Snow, I though I would knock up a prototype Android app to work with my media player <a href="http://sparktank.net/w/index.php?title=Project_Morrigan">Morrigan</a>.  A couple of days later (don't worry, I did remember to sleep) I have a something that is working rather better than previously expected.  Actually building this app was only 60% Android development.  The other 40% was beating Morrigan's HTTP interfaces into shape - a worthwhile exercise as they are looking much more robust now (though there is still more functionality to add).  Screen shots below:
 [gallery]
 In order, the 5 screens are:
@@ -35,9 +35,9 @@ In order, the 5 screens are:
   
   <entry>
     <title type="html"><![CDATA[Morrigan on GitHub]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/11/30/morrigan-on-github/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/11/30/morrigan-on-github/"/>
     <updated>2010-11-30T21:25:29+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/11/30/morrigan-on-github</id>
+    <id>http://octo.vaguehope.com/blog/2010/11/30/morrigan-on-github</id>
     <content type="html"><![CDATA[<p>I have finally settled on using GitHub to manage Morrigan's source code long term and to that end have begun to get properly acquainted with using git for development.  I have always liked git's approach to managing code and my first experience with GitHub's support staff sold me on it - supported ticket resolved and closed in 7 minutes flat.</p>
 
 <p>Moving Morrigan's code from SVN to git is fairly straight forward.  The more interesting challenge is going to be moving from private source to public source.  I am going to licence the code under Apache 2 licence (this plays best with my employers' interests) and I would like to be sure that the first copy of the code to hit the public is correctly marked, attributed etc.  This means the fun of adding headers to all code files... but that's ok as I already have a script for that.</p>
@@ -52,9 +52,9 @@ In order, the 5 screens are:
   
   <entry>
     <title type="html"><![CDATA[Morrigan's CLI]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/09/07/morrigans-cli/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/09/07/morrigans-cli/"/>
     <updated>2010-09-07T23:20:33+01:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/09/07/morrigans-cli</id>
+    <id>http://octo.vaguehope.com/blog/2010/09/07/morrigans-cli</id>
     <content type="html"><![CDATA[<p>One really handy feature of OSGi is the ability to supplement the OSGi console with extra commands.  This is particularly useful for creating very quick test/debug interfaces for each of you OSGi bundles.  The console is only shown to the user when the OSGi environment is started from the CLI and and "-console" parameter is specified, so for general usage this can be left neatly hidden.  So when things start to go a astray, you can just dive in and start poking around to see what is going on.  In more advanced setups, the console can be tunnelled to a port and accessed via telnet or ssh.</p>
 
 <p>As part of the headless version Morrigan, I have now added a handy CLI interface for testing / configuring it - essential until all this functionality makes it in to the WUI.  Below is a summary of all the currently supported commands (copied form the help text).</p>
@@ -102,9 +102,9 @@ NOTE 2: Only omit player ID when there is only one player.
   
   <entry>
     <title type="html"><![CDATA[Morrigan alpha 3 somewhat delayed]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/03/24/morrigan-alpha-3-somewhat-delayed/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/03/24/morrigan-alpha-3-somewhat-delayed/"/>
     <updated>2010-03-24T21:27:05+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/03/24/morrigan-alpha-3-somewhat-delayed</id>
+    <id>http://octo.vaguehope.com/blog/2010/03/24/morrigan-alpha-3-somewhat-delayed</id>
     <content type="html"><![CDATA[<p>My current dev build of Morrigan has a lot of new stuff compared to the a2 release.  In theory it now matches all major functionality of terra and I have indeed now migrated to using Morrigan as my primary media player.  And for the most part it is going well.</p>
 
 <p>I would really like to now make another release, but I am hesitating for 2 reasons:
@@ -123,9 +123,9 @@ NOTE 2: Only omit player ID when there is only one player.
   
   <entry>
     <title type="html"><![CDATA[When to deviate from conventions]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/02/28/when-to-deviate-from-conventions/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/02/28/when-to-deviate-from-conventions/"/>
     <updated>2010-02-28T22:56:28+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/02/28/when-to-deviate-from-conventions</id>
+    <id>http://octo.vaguehope.com/blog/2010/02/28/when-to-deviate-from-conventions</id>
     <content type="html"><![CDATA[<p>When following conventions of working within a framework, it is import to know when to follow and when to deviate.  As was once famously said, "Rules are there to make you think before you break them.".</p>
 
 <p>Previously I mused on the possibility of creating a fixed control bar across the top of Morrigan's main window.  This is, surprisingly, a completely supported feature of RCP and some experimentation this afternoon yielded this:</p>

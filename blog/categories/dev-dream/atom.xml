@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: dev/dream | My Octopress Blog]]></title>
-  <link href="http://haku.github.com/vaguehope/blog/categories/dev-dream/atom.xml" rel="self"/>
-  <link href="http://haku.github.com/vaguehope/"/>
-  <updated>2013-01-10T22:00:07+00:00</updated>
-  <id>http://haku.github.com/vaguehope/</id>
+  <link href="http://octo.vaguehope.com/blog/categories/dev-dream/atom.xml" rel="self"/>
+  <link href="http://octo.vaguehope.com/"/>
+  <updated>2013-01-10T22:07:12+00:00</updated>
+  <id>http://octo.vaguehope.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Morrigan's CLI]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/09/07/morrigans-cli/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/09/07/morrigans-cli/"/>
     <updated>2010-09-07T23:20:33+01:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/09/07/morrigans-cli</id>
+    <id>http://octo.vaguehope.com/blog/2010/09/07/morrigans-cli</id>
     <content type="html"><![CDATA[<p>One really handy feature of OSGi is the ability to supplement the OSGi console with extra commands.  This is particularly useful for creating very quick test/debug interfaces for each of you OSGi bundles.  The console is only shown to the user when the OSGi environment is started from the CLI and and "-console" parameter is specified, so for general usage this can be left neatly hidden.  So when things start to go a astray, you can just dive in and start poking around to see what is going on.  In more advanced setups, the console can be tunnelled to a port and accessed via telnet or ssh.</p>
 
 <p>As part of the headless version Morrigan, I have now added a handy CLI interface for testing / configuring it - essential until all this functionality makes it in to the WUI.  Below is a summary of all the currently supported commands (copied form the help text).</p>
@@ -65,9 +65,9 @@ NOTE 2: Only omit player ID when there is only one player.
   
   <entry>
     <title type="html"><![CDATA[Morrigan Project media player - first alpha release]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/02/07/morrigan-project-media-player-first-alpha-release/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/02/07/morrigan-project-media-player-first-alpha-release/"/>
     <updated>2010-02-07T20:00:44+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/02/07/morrigan-project-media-player-first-alpha-release</id>
+    <id>http://octo.vaguehope.com/blog/2010/02/07/morrigan-project-media-player-first-alpha-release</id>
     <content type="html"><![CDATA[<p>While development is still in early days, now seems like a nice time to gather some preliminary feed back.  Hopefully this should give people a feel for what I am aiming for.  Also I would like to catch any really nasty show-stopping bugs ASAP.</p>
 
 <p>I have draft entries about some of the ideas I want to explore with this project which I will try and finish and post in the next few days.</p>
@@ -94,9 +94,9 @@ Any and all feedback is greatly welcomed, particularly if you find a bug!  And i
   
   <entry>
     <title type="html"><![CDATA[dev/dream - awakening]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/02/07/devdream-awakening/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/02/07/devdream-awakening/"/>
     <updated>2010-02-07T00:53:30+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/02/07/devdream-awakening</id>
+    <id>http://octo.vaguehope.com/blog/2010/02/07/devdream-awakening</id>
     <content type="html"><![CDATA[<p>My week.. well 5 days of coding are basically over, so to begin this entry, here is a transcript of my white-board-wiki todo-list as it currently is.  These are not in order - on the board the sections are in a sort of circle.</p>
 
 <p>General:
@@ -130,9 +130,9 @@ Any and all feedback is greatly welcomed, particularly if you find a bug!  And i
   
   <entry>
     <title type="html"><![CDATA[dev/dream - end of 'session' 1]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/02/03/devdream-end-of-session-1/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/02/03/devdream-end-of-session-1/"/>
     <updated>2010-02-03T01:02:10+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/02/03/devdream-end-of-session-1</id>
+    <id>http://octo.vaguehope.com/blog/2010/02/03/devdream-end-of-session-1</id>
     <content type="html"><![CDATA[<p>Progress: I can add and remove files from a playlist and doubleclicking them plays that file... providing its a .wav.  I tried copying across the playback code from musicman and it seems to work, until you give it a .mp3 and it throws a unknown format exception.  <em>sigh</em>  As soon as i have finished writing this i am stopping to eat dinner.</p>
 
 <p>Since pictures tell far more, here is a sample UI screen shot:
@@ -149,9 +149,9 @@ Any and all feedback is greatly welcomed, particularly if you find a bug!  And i
   
   <entry>
     <title type="html"><![CDATA[dev/dream morrigan development week off to a late start]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/02/02/devdream-morrigan-development-week-off-to-a-late-start/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/02/02/devdream-morrigan-development-week-off-to-a-late-start/"/>
     <updated>2010-02-02T16:26:15+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/02/02/devdream-morrigan-development-week-off-to-a-late-start</id>
+    <id>http://octo.vaguehope.com/blog/2010/02/02/devdream-morrigan-development-week-off-to-a-late-start</id>
     <content type="html"><![CDATA[<p>I was supposed to start yesterday, but Quilage stole Saturday and then I went back to my parents for a couple of days to pick up my luggage that took 3 weeks to get from Geneva to Epsom.  Thanks for that, Thompson Travel.  But I digress...</p>
 
 <p>Initial progress is slow, but that is somewhat expected.  Some time taken by re-familiarising my self with RCP stuff, the code I wrote before some time ago.  But that all makes sense now and I have nearly finished a very basic playlist editor.  All that is left is to link in the methods I have to read and write playlist files to the right bits of RCP.  Once this is done, I get to actually try and make it play files.</p>

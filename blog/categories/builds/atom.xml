@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: builds | My Octopress Blog]]></title>
-  <link href="http://haku.github.com/vaguehope/blog/categories/builds/atom.xml" rel="self"/>
-  <link href="http://haku.github.com/vaguehope/"/>
-  <updated>2013-01-10T22:00:07+00:00</updated>
-  <id>http://haku.github.com/vaguehope/</id>
+  <link href="http://octo.vaguehope.com/blog/categories/builds/atom.xml" rel="self"/>
+  <link href="http://octo.vaguehope.com/"/>
+  <updated>2013-01-10T22:07:12+00:00</updated>
+  <id>http://octo.vaguehope.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Pipe lamps: Work in progress...]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/05/16/pipe-lamps-work-in-progress/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/05/16/pipe-lamps-work-in-progress/"/>
     <updated>2010-05-16T23:05:02+01:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/05/16/pipe-lamps-work-in-progress</id>
+    <id>http://octo.vaguehope.com/blog/2010/05/16/pipe-lamps-work-in-progress</id>
     <content type="html"><![CDATA[<p><a href="http://vaguehope.com/wp/wp-content/uploads/2010/05/P5060470.small_.jpg"><img src="http://vaguehope.com/wp/wp-content/uploads/2010/05/P5060470.small_-300x225.jpg" alt="" /></a></p>
 
 <p>Still need to work out where the transformers are going to go (the small boxes at the bottom).  I have yet to work out how to conceal them amongst the structure.  It has also been suggested I should try and make it look more 'attached' to the table.</p>

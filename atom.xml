@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://haku.github.com/vaguehope/atom.xml" rel="self"/>
-  <link href="http://haku.github.com/vaguehope/"/>
-  <updated>2013-01-10T22:00:07+00:00</updated>
-  <id>http://haku.github.com/vaguehope/</id>
+  <link href="http://octo.vaguehope.com/atom.xml" rel="self"/>
+  <link href="http://octo.vaguehope.com/"/>
+  <updated>2013-01-10T22:07:12+00:00</updated>
+  <id>http://octo.vaguehope.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Fixing Ubuntu 12.04 horizontal scrolling with Apple Magic Trackpad]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2012/10/20/fixing-ubuntu-12-04-horizontal-scrolling-with-apple-magic-trackpad/"/>
+    <link href="http://octo.vaguehope.com/blog/2012/10/20/fixing-ubuntu-12-04-horizontal-scrolling-with-apple-magic-trackpad/"/>
     <updated>2012-10-20T11:40:11+01:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2012/10/20/fixing-ubuntu-12-04-horizontal-scrolling-with-apple-magic-trackpad</id>
+    <id>http://octo.vaguehope.com/blog/2012/10/20/fixing-ubuntu-12-04-horizontal-scrolling-with-apple-magic-trackpad</id>
     <content type="html"><![CDATA[<p>After upgrading from Ubuntu 11.04 to 12.04 the h-scrolling two-finger quester on my Magic Trackpad stopped working, despite being enabled in the &#8216;mouse and touchpad&#8217; settings dialogue.</p>
 
 <p>A little digging and guessing led me to:
@@ -42,9 +42,9 @@ $ xinput --set-prop 'Apple Wireless Trackpad' 'Synaptics Two-Finger Scrolling' 1
   
   <entry>
     <title type="html"><![CDATA[PowerMock Puzzler]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2012/02/02/powermock-puzzler/"/>
+    <link href="http://octo.vaguehope.com/blog/2012/02/02/powermock-puzzler/"/>
     <updated>2012-02-02T08:35:12+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2012/02/02/powermock-puzzler</id>
+    <id>http://octo.vaguehope.com/blog/2012/02/02/powermock-puzzler</id>
     <content type="html"><![CDATA[<p><a href="https://code.google.com/p/powermock/">PowerMock</a> is a very handy extension to the <a href="https://code.google.com/p/mockito/">Mockito</a> mocking framework.  It extends Mockito by allowing the mocking of static methods and final classes.  Obviously to do this some interesting mangling is going on inside the JVM.  Occasionally it is possible to run into some very confusing error messages.</p>
 
 <p>Yesterday my colleague [<a href="http://blog.candle.me.uk/">Candle</a>] and I spent a very vexing half hour over this puzzle before we figured out the answer.  So I though I would share it to see how long it takes others to figure it out. ^^</p>
@@ -114,9 +114,9 @@ public class LoaderTest {
   
   <entry>
     <title type="html"><![CDATA[MQTT Kindlet]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2012/01/29/mqtt-kindlet/"/>
+    <link href="http://octo.vaguehope.com/blog/2012/01/29/mqtt-kindlet/"/>
     <updated>2012-01-29T13:27:44+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2012/01/29/mqtt-kindlet</id>
+    <id>http://octo.vaguehope.com/blog/2012/01/29/mqtt-kindlet</id>
     <content type="html"><![CDATA[<p><a href="http://vaguehope.com/2012/01/mqtt-kindlet/img_20120129_125008/"><img src="http://vaguehope.com/uploads/2012/01/IMG_20120129_125008-768x1024.jpg" alt="" /></a></p>
 
 <p>For <a href="http://london.greenhackathon.com">London Green Hackathon</a> I hacked together a proof-of-concept Kindlet (Kindle Applet) for monitoring environmental data in real-time that runs on a Kindle 3.  Its actually a generic MQTT client that runs on a Kindle, but MQTT is a very popular protocol for transmitting environmental data so I think I can argue the &#8216;green&#8217; values of this project.  After all, <a href="http://nanode.eu">Nanode</a> is just an Arduino with an Ethernet port, that gets green badges.</p>
@@ -144,9 +144,9 @@ public class LoaderTest {
   
   <entry>
     <title type="html"><![CDATA[Perform: Programming]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2012/01/02/perform-programming/"/>
+    <link href="http://octo.vaguehope.com/blog/2012/01/02/perform-programming/"/>
     <updated>2012-01-02T22:00:00+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2012/01/02/perform-programming</id>
+    <id>http://octo.vaguehope.com/blog/2012/01/02/perform-programming</id>
     <content type="html"><![CDATA[<p>Music, films, acting, painting&#8230; art of any kind.  People always have an opinion.  It is a completely open-access system.  No special skills are required to understand and enjoy art&#8230; what would be the point in music that was only interesting to skilled musicians?</p>
 
 <p>A display of great skill earns great praise and respect, possibly fame.  No one wants to know how a given tune was dreamed up, the tedious months of refining the composition, the 100 failed songs that preceded this one.  The art in a work of art is all in the interpretation, the mind of the observer.</p>
@@ -177,9 +177,9 @@ public class LoaderTest {
   
   <entry>
     <title type="html"><![CDATA[SVN to (existing) git repository in 3 steps]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2011/09/14/svn-to-existing-git-repository-in-3-steps/"/>
+    <link href="http://octo.vaguehope.com/blog/2011/09/14/svn-to-existing-git-repository-in-3-steps/"/>
     <updated>2011-09-14T21:23:16+01:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2011/09/14/svn-to-existing-git-repository-in-3-steps</id>
+    <id>http://octo.vaguehope.com/blog/2011/09/14/svn-to-existing-git-repository-in-3-steps</id>
     <content type="html"><![CDATA[<p>Today I migrated Morrigan (my media player and manger project) from a private SVN server to an <a href="https://github.com/haku/Morrigan">existing github.com repository</a>.  Usually I would not bother writing up such mundane things, but this was so easy I wanted to make the point.</p>
 
 <p>Assuming an existing target git repository called `projectfoo-git&#8217;, it goes like this:</p>
@@ -200,9 +200,9 @@ $ git push
   
   <entry>
     <title type="html"><![CDATA[Developing on Android]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2011/09/10/developing-on-android/"/>
+    <link href="http://octo.vaguehope.com/blog/2011/09/10/developing-on-android/"/>
     <updated>2011-09-10T16:56:59+01:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2011/09/10/developing-on-android</id>
+    <id>http://octo.vaguehope.com/blog/2011/09/10/developing-on-android</id>
     <content type="html"><![CDATA[<p>A few days ago I got an Asus Transformer - an Android table with a full physical keyboard.  Since then I have been trying to figure out the best way to write code on this device.  While porting Eclipse to Android would be cool, it would also be near impossibly complex.  It would also be excessive.  What I am aiming for here is a fairly simple toolchain and workflow.</p>
 
 <p>To start with, I would like to be able to:
@@ -226,9 +226,9 @@ $ git push
   
   <entry>
     <title type="html"><![CDATA[Minimalist Firefox]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2011/03/25/minimalist-firefox/"/>
+    <link href="http://octo.vaguehope.com/blog/2011/03/25/minimalist-firefox/"/>
     <updated>2011-03-25T16:34:54+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2011/03/25/minimalist-firefox</id>
+    <id>http://octo.vaguehope.com/blog/2011/03/25/minimalist-firefox</id>
     <content type="html"><![CDATA[<p><a href="http://vaguehope.com/2011/03/minimalist-firefox/reduced-firefox/"><img src="http://vaguehope.com/uploads/2011/03/reduced-firefox-1024x575.png" alt="" /></a></p>
 
 <p>I have been experimenting to see how much of the Firefox GUI is actually required vs that which is just fluff.  As requested by <a href="https://twitter.com/tsuki_chama">@tsuki_chama</a>, here is a list of plugins and config I am using.</p>
@@ -247,9 +247,9 @@ $ git push
   
   <entry>
     <title type="html"><![CDATA[Talking to Machines]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2011/01/16/talking-to-machines/"/>
+    <link href="http://octo.vaguehope.com/blog/2011/01/16/talking-to-machines/"/>
     <updated>2011-01-16T12:18:37+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2011/01/16/talking-to-machines</id>
+    <id>http://octo.vaguehope.com/blog/2011/01/16/talking-to-machines</id>
     <content type="html"><![CDATA[<p>Recently IBM built <a href="http://www.engadget.com/2011/01/13/ibms-watson-supercomputer-destroys-all-humans-in-jeopardy-pract/">an app that can play Jeopardy</a>, and play it well.  Ok so it needs rather more hardware than the average app, but its still just software.  And this got me thinking&#8230;</p>
 
 <p>A quick search of the internet does not reveal the exact spec that Watson is running on, so lets do some guessing based on the little data I did find.  Watson is running on <a href="https://secure.wikimedia.org/wikipedia/en/wiki/POWER7">POWER7 hardware</a>.  The largest configuration that Wikipedia lists is 32 chips = 128 cores, so lets assume Watson is using this.  An average desktop now has 4 cores.  Assuming that most numbers in technology double every two years, in 10 years time a 128 core desktop will normal.  The software part of Watson will also greatly improve in this time period, possible reducing the hardware requirement.  So its entirely possible that in 10 years time I will be able to have a conversation with my computer&#8230;</p>
@@ -266,9 +266,9 @@ $ git push
   
   <entry>
     <title type="html"><![CDATA[yuki.scr - open-sourcing a 2-day project from 3 years ago]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/12/31/yuki-scr-open-sourcing-a-2-day-project-from-3-years-ago/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/12/31/yuki-scr-open-sourcing-a-2-day-project-from-3-years-ago/"/>
     <updated>2010-12-31T23:02:39+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/12/31/yuki-scr-open-sourcing-a-2-day-project-from-3-years-ago</id>
+    <id>http://octo.vaguehope.com/blog/2010/12/31/yuki-scr-open-sourcing-a-2-day-project-from-3-years-ago</id>
     <content type="html"><![CDATA[<p>A long time ago, on 4chan&#8217;s /w/, there was a thread #426444.  Someone posted a gif wallpaper based on <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Nagato_Yuki">Nagato Yuki</a> hacking a LAN game tournament to stop the other side cheating.
 <a href="http://vaguehope.com/i/209/yuki420"><img src="http://vaguehope.com/wp/wp-content/uploads/2010/12/yuki420.gif" alt="" /></a>
 But what everyone really wanted was a screen-saver version&#8230; and I had one of those &#8216;I can do this!&#8217; moments (does not happen very often).  The basic plan was simple, write a screen-saver (in Windows these are just binary executables with .scr instead of .exe) that spawned terminal-looking windows, scrolled random crap down them for a while, then closed them a little later.  After some fiddling about with timing, text-scroll-speed and max number of windows on screen at once, I had something that created a nicely disconcerting effect.</p>
@@ -289,9 +289,9 @@ But what everyone really wanted was a screen-saver version&#8230; and I had one 
   
   <entry>
     <title type="html"><![CDATA[Morrigan on Android]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/12/22/morrigan-on-android/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/12/22/morrigan-on-android/"/>
     <updated>2010-12-22T23:01:32+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/12/22/morrigan-on-android</id>
+    <id>http://octo.vaguehope.com/blog/2010/12/22/morrigan-on-android</id>
     <content type="html"><![CDATA[<p>In an idle moment in a spot of vacation leading up to Christmas and while everyone else does battle with The Snow, I though I would knock up a prototype Android app to work with my media player <a href="http://sparktank.net/w/index.php?title=Project_Morrigan">Morrigan</a>.  A couple of days later (don&#8217;t worry, I did remember to sleep) I have a something that is working rather better than previously expected.  Actually building this app was only 60% Android development.  The other 40% was beating Morrigan&#8217;s HTTP interfaces into shape - a worthwhile exercise as they are looking much more robust now (though there is still more functionality to add).  Screen shots below:
 [gallery]
 In order, the 5 screens are:
@@ -309,9 +309,9 @@ In order, the 5 screens are:
   
   <entry>
     <title type="html"><![CDATA[Morrigan on GitHub]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/11/30/morrigan-on-github/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/11/30/morrigan-on-github/"/>
     <updated>2010-11-30T21:25:29+00:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/11/30/morrigan-on-github</id>
+    <id>http://octo.vaguehope.com/blog/2010/11/30/morrigan-on-github</id>
     <content type="html"><![CDATA[<p>I have finally settled on using GitHub to manage Morrigan&#8217;s source code long term and to that end have begun to get properly acquainted with using git for development.  I have always liked git&#8217;s approach to managing code and my first experience with GitHub&#8217;s support staff sold me on it - supported ticket resolved and closed in 7 minutes flat.</p>
 
 <p>Moving Morrigan&#8217;s code from SVN to git is fairly straight forward.  The more interesting challenge is going to be moving from private source to public source.  I am going to licence the code under Apache 2 licence (this plays best with my employers&#8217; interests) and I would like to be sure that the first copy of the code to hit the public is correctly marked, attributed etc.  This means the fun of adding headers to all code files&#8230; but that&#8217;s ok as I already have a script for that.</p>
@@ -326,9 +326,9 @@ In order, the 5 screens are:
   
   <entry>
     <title type="html"><![CDATA[Morrigan α5]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/10/19/morrigan-ceb15/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/10/19/morrigan-ceb15/"/>
     <updated>2010-10-19T00:17:09+01:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/10/19/morrigan-ceb15</id>
+    <id>http://octo.vaguehope.com/blog/2010/10/19/morrigan-ceb15</id>
     <content type="html"><![CDATA[<p>So its been aages since the last &#8216;release&#8217; and since the codebase has been stable for a week and I have not encountered any issues while using it myself, I thought I might as well make another drop.  Also it helps that when I tell people about this project, that there is a nice recent release for them to play with.</p>
 
 <p>Much code has changed during this period with the most important new feature being the new DB structure which supports having both music/videos and pictures in the same DB (MMDB = Mixed Media Data Base), significantly simplifying both the UI and the backend-end.  At lot else changed in the 416 revisions that occurred between releases, but since no one really used the previous release, listing the changes seems somewhat pointless*.  Suffices to say that is version is at the very least a lot less buggy.</p>
@@ -343,9 +343,9 @@ In order, the 5 screens are:
   
   <entry>
     <title type="html"><![CDATA[Morrigan's CLI]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/09/07/morrigans-cli/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/09/07/morrigans-cli/"/>
     <updated>2010-09-07T23:20:33+01:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/09/07/morrigans-cli</id>
+    <id>http://octo.vaguehope.com/blog/2010/09/07/morrigans-cli</id>
     <content type="html"><![CDATA[<p>One really handy feature of OSGi is the ability to supplement the OSGi console with extra commands.  This is particularly useful for creating very quick test/debug interfaces for each of you OSGi bundles.  The console is only shown to the user when the OSGi environment is started from the CLI and and &#8220;-console&#8221; parameter is specified, so for general usage this can be left neatly hidden.  So when things start to go a astray, you can just dive in and start poking around to see what is going on.  In more advanced setups, the console can be tunnelled to a port and accessed via telnet or ssh.</p>
 
 <p>As part of the headless version Morrigan, I have now added a handy CLI interface for testing / configuring it - essential until all this functionality makes it in to the WUI.  Below is a summary of all the currently supported commands (copied form the help text).</p>
@@ -393,9 +393,9 @@ NOTE 2: Only omit player ID when there is only one player.
   
   <entry>
     <title type="html"><![CDATA[Morrigan α4]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/06/15/morrigan-ceb14/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/06/15/morrigan-ceb14/"/>
     <updated>2010-06-15T22:50:44+01:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/06/15/morrigan-ceb14</id>
+    <id>http://octo.vaguehope.com/blog/2010/06/15/morrigan-ceb14</id>
     <content type="html"><![CDATA[<p>Its been ages since α3 and during that time much has changed.  Not a huge number of new features but there are, I feel, some significant improvements in the quality of the code base (I have done quite a lot of refactoring, debugging and optimising).</p>
 
 <p>The most notable new feature is that there is now an embedded Jetty server.  This provides two things: 1) a web UI to remote control Morrigan and 2) REST-like APIs for other apps to interact with.  Also this server can be started on a headless server.</p>
@@ -417,9 +417,9 @@ Feel free to ask if you need help with this.</p>
   
   <entry>
     <title type="html"><![CDATA[O2's definition of 'unlimited']]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/05/17/o2s-definition-of-unlimited/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/05/17/o2s-definition-of-unlimited/"/>
     <updated>2010-05-17T19:43:50+01:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/05/17/o2s-definition-of-unlimited</id>
+    <id>http://octo.vaguehope.com/blog/2010/05/17/o2s-definition-of-unlimited</id>
     <content type="html"><![CDATA[<p>On the 10th of May I received a very strange phone call from O2 regarding my broad band account.  After finally establishing that the caller was legitimate, they informed me that I was over using their service and had to reduce my usage with in a month or I would be disconnected.  Well that is the summary, their actual logic goes like this:</p>
 
 <ul>
@@ -474,9 +474,9 @@ Feel free to ask if you need help with this.</p>
   
   <entry>
     <title type="html"><![CDATA[Pipe lamps: Work in progress...]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/05/16/pipe-lamps-work-in-progress/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/05/16/pipe-lamps-work-in-progress/"/>
     <updated>2010-05-16T23:05:02+01:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/05/16/pipe-lamps-work-in-progress</id>
+    <id>http://octo.vaguehope.com/blog/2010/05/16/pipe-lamps-work-in-progress</id>
     <content type="html"><![CDATA[<p><a href="http://vaguehope.com/wp/wp-content/uploads/2010/05/P5060470.small_.jpg"><img src="http://vaguehope.com/wp/wp-content/uploads/2010/05/P5060470.small_-300x225.jpg" alt="" /></a></p>
 
 <p>Still need to work out where the transformers are going to go (the small boxes at the bottom).  I have yet to work out how to conceal them amongst the structure.  It has also been suggested I should try and make it look more &#8216;attached&#8217; to the table.</p>
@@ -487,9 +487,9 @@ Feel free to ask if you need help with this.</p>
   
   <entry>
     <title type="html"><![CDATA[American Sizes]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/04/25/american-sizes/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/04/25/american-sizes/"/>
     <updated>2010-04-25T17:32:31+01:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/04/25/american-sizes</id>
+    <id>http://octo.vaguehope.com/blog/2010/04/25/american-sizes</id>
     <content type="html"><![CDATA[<p>Hopefully I should be flying back to the UK this afternoon.  So as a leaving thought, I have a proposal for American restaurants.</p>
 
 <p>Please place some form of indicator next to each item on the menu to give the reader an idea of exactly how much for they are ordering.  I propose the following 1 to 5 scale:</p>
@@ -509,9 +509,9 @@ Feel free to ask if you need help with this.</p>
   
   <entry>
     <title type="html"><![CDATA[Has the world forgotten how to make decent laptops?]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/04/23/has-the-world-forgotten-how-to-make-decent-laptops/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/04/23/has-the-world-forgotten-how-to-make-decent-laptops/"/>
     <updated>2010-04-23T02:09:44+01:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/04/23/has-the-world-forgotten-how-to-make-decent-laptops</id>
+    <id>http://octo.vaguehope.com/blog/2010/04/23/has-the-world-forgotten-how-to-make-decent-laptops</id>
     <content type="html"><![CDATA[<p>I need a new laptop.  While it is true that I am in possession of a number of laptops, they are all at least 4 years old and &#8220;a bit slow&#8221; does not really cover it any more.  My main machine is a laptop with a 2GHz Pentium M and 2 GB RAM and is near-permanently-docked to a 24&#8221; monitor.  Eclipse is tolerable but not nice and HD video tends to just not play.</p>
 
 <p>So I have been looking for something new.  I am looking for something to last me the next few years and I am prepared to spend to get quality.  Provisionally I have given myself a budget of about 1000 GBP, so I am expecting something really quite decent.  And I am prepared to go higher if I think its worth it.  However after a couple of months of looking I have failed to find anything all at that I want but can&#8217;t afford, let alone something I want to buy.</p>
@@ -556,9 +556,9 @@ Apple is the prime offender here for stripping out a whole load of useful keys, 
   
   <entry>
     <title type="html"><![CDATA[When life hands you lemons...]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/04/18/when-life-hands-you-lemons/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/04/18/when-life-hands-you-lemons/"/>
     <updated>2010-04-18T04:47:24+01:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/04/18/when-life-hands-you-lemons</id>
+    <id>http://octo.vaguehope.com/blog/2010/04/18/when-life-hands-you-lemons</id>
     <content type="html"><![CDATA[<p>&#8230; make lemonade.</p>
 
 <p>Along with many others, I am stranded until a certain antisocial geological event gets over its angst.  But on the bright side, San Francisco is defiantly near the top of my list of places to get stranded in.</p>
@@ -579,9 +579,9 @@ Apple is the prime offender here for stripping out a whole load of useful keys, 
   
   <entry>
     <title type="html"><![CDATA[Morrigan Alpha 3 - Almost Usable]]></title>
-    <link href="http://haku.github.com/vaguehope/blog/2010/04/04/morrigan-alpha-3-almost-usable/"/>
+    <link href="http://octo.vaguehope.com/blog/2010/04/04/morrigan-alpha-3-almost-usable/"/>
     <updated>2010-04-04T21:19:14+01:00</updated>
-    <id>http://haku.github.com/vaguehope/blog/2010/04/04/morrigan-alpha-3-almost-usable</id>
+    <id>http://octo.vaguehope.com/blog/2010/04/04/morrigan-alpha-3-almost-usable</id>
     <content type="html"><![CDATA[<p>I have finally given in an called another release.  I know it has a number of bugs still, but the list of bugs seems to be remaining stable.  And I have been using it could a couple of weeks. (Is this how managers think?)</p>
 
 <p>So if anyone reads this would be kind enough to test this media manager for me, release details and download links can be found on this page: <a href="http://sparktank.net/w/index.php?title=Project_Morrigan">Project Morrigan</a></p>

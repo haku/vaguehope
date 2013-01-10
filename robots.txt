@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://haku.github.com/vaguehope/sitemap.xml 
+Sitemap: http://octo.vaguehope.com/sitemap.xml 
